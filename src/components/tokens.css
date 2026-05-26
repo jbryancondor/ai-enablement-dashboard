@@ -1,0 +1,31 @@
+:root {
+  /* Tier colors — WCAG AA verified on white */
+  --tier-explorer: #64748b;
+  --tier-adopter: #0284c7;
+  --tier-champion: #d97706;
+
+  /* Okabe-Ito colorblind-safe categorical palette */
+  --color-l1: #e69f00;
+  --color-l2: #56b4e9;
+  --color-l3: #009e73;
+  --color-l4: #f0e442;
+  --color-l5: #0072b2;
+  --color-l6: #d55e00;
+  --color-l7: #cc79a7;
+
+  /* Bullet graph bands */
+  --band-poor: #fee2e2;
+  --band-ok: #fef9c3;
+  --band-good: #dcfce7;
+
+  /* UI surface */
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+
+  /* Spacing */
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+}

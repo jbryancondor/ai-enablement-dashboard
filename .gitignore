@@ -1,0 +1,20 @@
+node_modules/
+dist/
+
+# Raw survey CSVs — contain PII (names, emails)
+docs/input/
+
+# macOS
+.DS_Store
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+
+# Vite cache
+.vite/

@@ -1,0 +1,282 @@
+{
+  "engineers": [
+    {
+      "id": "8417abf4-e988-5b99-a56f-66c972e96c93",
+      "name": "Bryan Condor",
+      "email": "bcondor@addi.com"
+    },
+    {
+      "id": "6895360e-bf31-5bc5-a221-d8751c31298b",
+      "name": "Daniel del Castillo Andrade",
+      "email": "ddelcastillo@addi.com"
+    },
+    {
+      "id": "cb42c19e-3c4a-56b4-b910-2defc74dfb22",
+      "name": "Alexander Madronero",
+      "email": "emadronero@addi.com"
+    },
+    {
+      "id": "646ef819-3061-5588-8c91-dc9ae1733e04",
+      "name": "Elkin David Ortiz Rodriguez",
+      "email": "eortiz@addi.com"
+    },
+    {
+      "id": "dcaf274c-c77d-5b86-8751-6aec3548ae22",
+      "name": "Filipe Muller",
+      "email": "fmuller@addi.com"
+    },
+    {
+      "id": "dda06b23-12c3-5e09-9cc8-a3f8901750a3",
+      "name": "Jhoan Stiven Cardona Galeano",
+      "email": "jcardona@addi.com"
+    },
+    {
+      "id": "74ed59db-6223-561f-bad3-51e9a55676d1",
+      "name": "",
+      "email": "jfernandez@addi.com"
+    },
+    {
+      "id": "e09c62b0-04d2-51d9-8e1c-08f7bcc0f29c",
+      "name": "Leticia Caroline Amancio",
+      "email": "lamancio@addi.com"
+    },
+    {
+      "id": "381fc441-b4ce-5c8e-9063-f37134179182",
+      "name": "Santiago Arcila",
+      "email": "sarcila@addi.com"
+    },
+    {
+      "id": "ac4e0e25-0360-5ecd-ac0a-36bfdd446c52",
+      "name": "Sebastian Ospina Garcia",
+      "email": "sospina@addi.com"
+    },
+    {
+      "id": "606521c9-8f50-5e1c-ac79-8b0ce25dbf62",
+      "name": "Sergio Rivas",
+      "email": "srivas@addi.com"
+    },
+    {
+      "id": "632337fd-f8d0-502a-9652-68cc538ae52d",
+      "name": "Hamer PAtarroyo",
+      "email": "wpatarroyo@addi.com"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "f644777c-c957-5c44-bdcd-b8e7dcb13581",
+      "engineerId": "dcaf274c-c77d-5b86-8751-6aec3548ae22",
+      "submittedAt": "2026-05-18T11:06:50",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 5,
+        "L5": 5,
+        "L6": 3,
+        "L7": 2
+      },
+      "proficiency": 0.8571,
+      "tier": "champion",
+      "biggestGap": "Define a process that works all the time, to elevate the harness of the solutions when running multi-background and autonomous agents",
+      "plannedActions": "Continue to evolve a dedicated plugin that improves this aspect (Atlas), by not only gathering feedback from me, but from other team members already evaluating and using the tool"
+    },
+    {
+      "id": "37a247e9-01b5-5d88-b71d-efce758c415f",
+      "engineerId": "e09c62b0-04d2-51d9-8e1c-08f7bcc0f29c",
+      "submittedAt": "2026-05-18T11:40:41",
+      "levels": {
+        "L1": 5,
+        "L2": 4,
+        "L3": 2,
+        "L4": 1,
+        "L5": 1,
+        "L6": 0,
+        "L7": 0
+      },
+      "proficiency": 0.3714,
+      "tier": "explorer",
+      "biggestGap": null,
+      "plannedActions": "Consolidate knowledge with Single Agent CLI and advance with Spec-driven development."
+    },
+    {
+      "id": "dfa1a49b-021c-5437-ada1-dcc578a54348",
+      "engineerId": "74ed59db-6223-561f-bad3-51e9a55676d1",
+      "submittedAt": "2026-05-18T12:09:12",
+      "levels": {
+        "L1": 0,
+        "L2": 4,
+        "L3": 3,
+        "L4": 3,
+        "L5": 3,
+        "L6": 2,
+        "L7": 2
+      },
+      "proficiency": 0.4857,
+      "tier": "explorer",
+      "biggestGap": "None.",
+      "plannedActions": "- Implement heavily L6 and L7 in my next initiative \"Entry Point to Quick Pay\" and share learnings in AI enablement channel. \n- Design agnostic but controlled Agentic Workflow mainly based on skills, apart from OpenSpec, SpecKit, etc or other tools and then share with the team.\n- (In parallel) Enforce and consolidate clear understanding about Agentic Engineering practices."
+    },
+    {
+      "id": "5f67d3ca-bd0b-5ee0-8c6e-ec0f4eab1297",
+      "engineerId": "cb42c19e-3c4a-56b4-b910-2defc74dfb22",
+      "submittedAt": "2026-05-18T17:23:15",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 4,
+        "L5": 4,
+        "L6": 3,
+        "L7": 2
+      },
+      "proficiency": 0.8,
+      "tier": "champion",
+      "biggestGap": "I contribute to repo guidance AGENTS.md, SKILLS.md as part of normal work.\nL7 — Orchestrate autonomous agent teams",
+      "plannedActions": "Improve my capability of sharing my learnings with the team, expand whatever"
+    },
+    {
+      "id": "72324073-2b85-5ab8-a389-133ffab0d194",
+      "engineerId": "6895360e-bf31-5bc5-a221-d8751c31298b",
+      "submittedAt": "2026-05-19T08:30:37",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 3,
+        "L4": 2,
+        "L5": 1,
+        "L6": 1,
+        "L7": 1
+      },
+      "proficiency": 0.5143,
+      "tier": "adopter",
+      "biggestGap": "Build the capability and harness required to run long horizon, overnight agentic tasks with minimal supervision (hardening L3-L6, H3). In compound engineering: Better follow-ups after a PR or comments (mine or colleagues).",
+      "plannedActions": "1. Harden and implement skills regarding multi-agent delegation with verification loops. Be able to have a complete flow from spec to pre-PR documents. 2. Create a plan to track progression regarding next steps per each skill/level, with items being able to check if covered for new capabilities acquired (measure progress as well)."
+    },
+    {
+      "id": "66b952a9-78c1-5a2f-80fc-5446c0a51530",
+      "engineerId": "646ef819-3061-5588-8c91-dc9ae1733e04",
+      "submittedAt": "2026-05-19T08:38:30",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 3,
+        "L4": 2,
+        "L5": 2,
+        "L6": 2,
+        "L7": 0
+      },
+      "proficiency": 0.5429,
+      "tier": "adopter",
+      "biggestGap": null,
+      "plannedActions": null
+    },
+    {
+      "id": "a5741ae1-fc8c-5d16-b791-7836de5d0d4f",
+      "engineerId": "632337fd-f8d0-502a-9652-68cc538ae52d",
+      "submittedAt": "2026-05-19T08:54:47",
+      "levels": {
+        "L1": 5,
+        "L2": 4,
+        "L3": 4,
+        "L4": 4,
+        "L5": 3,
+        "L6": 2,
+        "L7": 0
+      },
+      "proficiency": 0.6286,
+      "tier": "adopter",
+      "biggestGap": "Knowledge gap",
+      "plannedActions": "Improve parallelism agents works and skills auto improvement"
+    },
+    {
+      "id": "82df8f94-3f06-5c15-87c8-abb1eae1c1c3",
+      "engineerId": "381fc441-b4ce-5c8e-9063-f37134179182",
+      "submittedAt": "2026-05-19T10:41:43",
+      "levels": {
+        "L1": 4,
+        "L2": 3,
+        "L3": 2,
+        "L4": 3,
+        "L5": 1,
+        "L6": 2,
+        "L7": 0
+      },
+      "proficiency": 0.4286,
+      "tier": "explorer",
+      "biggestGap": "Not having visibility in the costs and usage of AI",
+      "plannedActions": "Add more agent to repo context"
+    },
+    {
+      "id": "40b3d2fa-676b-5a1c-9c70-ec602176fbc3",
+      "engineerId": "ac4e0e25-0360-5ecd-ac0a-36bfdd446c52",
+      "submittedAt": "2026-05-19T11:09:19",
+      "levels": {
+        "L1": 4,
+        "L2": 4,
+        "L3": 3,
+        "L4": 3,
+        "L5": 3,
+        "L6": 3,
+        "L7": 2
+      },
+      "proficiency": 0.6286,
+      "tier": "adopter",
+      "biggestGap": "The biggest gap is domain knowledge and bridging the business logic with technical execution. Because I am new to the team, my reliance on templates and external help stems largely from not yet fully understanding the underlying business rules, edge cases, and user expectations. I cannot effectively orchestrate agents, if I don't deeply understand the workflow i'm supposed to automate",
+      "plannedActions": "Deep dive into one core business workflow. Instead of trying to learn everything at once, I will sit down with a subject matter expert (or review existing documentation/code) to map out one specific, critical business process end-to-end. My goal is to successfully translate that human-level business logic into clear system constraints and prompts for an agent, proving I understand why the rules exist."
+    },
+    {
+      "id": "2b0f9950-1716-54e0-bffd-553f35bd74ed",
+      "engineerId": "dda06b23-12c3-5e09-9cc8-a3f8901750a3",
+      "submittedAt": "2026-05-19T11:21:11",
+      "levels": {
+        "L1": 4,
+        "L2": 3,
+        "L3": 2,
+        "L4": 1,
+        "L5": 2,
+        "L6": 1,
+        "L7": 1
+      },
+      "proficiency": 0.4,
+      "tier": "explorer",
+      "biggestGap": null,
+      "plannedActions": null
+    },
+    {
+      "id": "70b0f494-43cb-5417-b49e-a6aefc1e8ff9",
+      "engineerId": "606521c9-8f50-5e1c-ac79-8b0ce25dbf62",
+      "submittedAt": "2026-05-19T14:18:19",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 3,
+        "L5": 2,
+        "L6": 0,
+        "L7": 2
+      },
+      "proficiency": 0.6,
+      "tier": "adopter",
+      "biggestGap": "Have more time to try different things",
+      "plannedActions": "Research on how to improve my skills with Long running backendground agent, which is the level where I am not started yet"
+    },
+    {
+      "id": "c188e93d-ba0d-5598-be42-af2b1f358c28",
+      "engineerId": "8417abf4-e988-5b99-a56f-66c972e96c93",
+      "submittedAt": "2026-05-19T14:24:09",
+      "levels": {
+        "L1": 5,
+        "L2": 4,
+        "L3": 4,
+        "L4": 5,
+        "L5": 3,
+        "L6": 2,
+        "L7": 1
+      },
+      "proficiency": 0.6857,
+      "tier": "adopter",
+      "biggestGap": "Send task to background process and autonomous execution. I've tried in the past that it takes long time as sometimes it could not finished successfully and require manual intervention.",
+      "plannedActions": "Orchestration and Tasks in Background."
+    }
+  ]
+}
