@@ -82,17 +82,21 @@ def load_yaml_simple(path: Path) -> dict:
             indent = len(line) - len(stripped)
             if stripped.startswith("- "):
                 val = stripped[2:].strip().strip('"').strip("'")
-                if not val.startswith("#"):
-                    if isinstance(result.get(current_key), list):
-                        result[current_key].append(val)
+                if not val.startswith("#") and current_key:
+                    # Coerce to list on first item regardless of initial type
+                    if not isinstance(result.get(current_key), list):
+                        result[current_key] = []
+                    result[current_key].append(val)
             elif ":" in stripped and not stripped.startswith("-"):
                 k, _, v = stripped.partition(":")
                 k = k.strip()
                 v = v.strip()
                 if indent == 0:
                     current_key = k
-                    if v == "" or v == "[]":
-                        result[k] = [] if v == "[]" else {}
+                    if v == "[]":
+                        result[k] = []
+                    elif v == "":
+                        result[k] = {}  # will be coerced to list if - items follow
                     else:
                         result[k] = v
                 else:

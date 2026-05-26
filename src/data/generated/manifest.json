@@ -29,6 +29,26 @@
       "rowsSkipped": 12,
       "rowsConflicted": 0,
       "infraSnapshot": "src/data/generated/infra/2026-05-19.json"
+    },
+    {
+      "ingestedAt": "2026-05-26T23:51:56.792629Z",
+      "csvPath": "/Users/bcondor/addi/project/ai-enablement-dashboard/docs/input/AI-Native Engineering — Individual Capability Self-Assessment (Responses) - Form.csv",
+      "csvSha256": "e287da154126d678165baae35d836acd2a6c64899534789b548be0f9ad2aa4e9",
+      "capturedAt": "2026-05-19",
+      "rowsAdded": 0,
+      "rowsSkipped": 12,
+      "rowsConflicted": 0,
+      "infraSnapshot": "src/data/generated/infra/2026-05-19.json"
+    },
+    {
+      "ingestedAt": "2026-05-26T23:52:38.182171Z",
+      "csvPath": "/Users/bcondor/addi/project/ai-enablement-dashboard/docs/input/AI-Native Engineering — Individual Capability Self-Assessment (Responses) - Form.csv",
+      "csvSha256": "e287da154126d678165baae35d836acd2a6c64899534789b548be0f9ad2aa4e9",
+      "capturedAt": "2026-05-26",
+      "rowsAdded": 0,
+      "rowsSkipped": 12,
+      "rowsConflicted": 0,
+      "infraSnapshot": "src/data/generated/infra/2026-05-26.json"
     }
   ]
 }

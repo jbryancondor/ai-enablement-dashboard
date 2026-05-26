@@ -2,9 +2,13 @@ squad:
   id: merchant-engineering
   name: Merchant Engineering
 
-# List absolute paths to repos that belong to this squad.
-# The ingest script will run context-engineering-map against each one.
-repos: []
-  # Example:
-  # - /Users/bcondor/addi/project/merchant-api
-  # - /Users/bcondor/addi/project/merchant-web
+# Absolute paths to repos that belong to this squad.
+# The ingest script runs context-engineering-map against each one.
+repos:
+  - /Users/bcondor/addi/project/platform/backend-jvm-legacy/ally-management
+  - /Users/bcondor/addi/project/platform/backend-jvm-legacy/channels
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/channels
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels
+  - /Users/bcondor/addi/project/platform/ui/apps/ally-portal
