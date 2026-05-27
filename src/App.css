@@ -37,11 +37,11 @@ body {
 }
 
 .anim-fade-in {
-  animation: fadeIn 0.35s ease both;
+  animation: fadeIn 0.7s ease both;
 }
 
 .anim-fade-in-fast {
-  animation: fadeInFast 0.25s ease both;
+  animation: fadeInFast 0.5s ease both;
 }
 
 @media (prefers-reduced-motion: reduce) {

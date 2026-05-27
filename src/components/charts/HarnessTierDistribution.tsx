@@ -13,13 +13,13 @@ function HarnessTile({ t, count, pct, delay, fmt }: {
   count: number; pct: number; delay: number;
   fmt: (v: number) => string;
 }) {
-  const animated = useCountUp(count, 700);
+  const animated = useCountUp(count, 1200);
   return (
     <div style={{
       borderRadius: 10, padding: '12px 14px',
       background: `${t.color}0f`, border: `1.5px solid ${t.color}40`,
       display: 'flex', flexDirection: 'column', gap: 4,
-      animation: 'staggerFadeIn 0.4s ease both',
+      animation: 'staggerFadeIn 0.7s ease both',
       animationDelay: `${delay}ms`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
@@ -35,7 +35,7 @@ function HarnessTile({ t, count, pct, delay, fmt }: {
         <div style={{
           height: '100%', width: `${pct * 100}%`, background: t.color, borderRadius: 2,
           transformOrigin: 'left',
-          animation: 'scaleInX 0.7s ease both',
+          animation: 'scaleInX 1.1s ease both',
           animationDelay: `${delay + 100}ms`,
         }} />
       </div>
@@ -56,7 +56,7 @@ export function HarnessTierDistribution({ data, scanNote }: Props) {
         {HARNESS_TIERS.map((t, i) => {
           const count = data[t.id];
           const pct = total > 0 ? count / total : 0;
-          return <HarnessTile key={t.id} t={t} count={count} pct={pct} delay={i * 80} fmt={fmt} />;
+          return <HarnessTile key={t.id} t={t} count={count} pct={pct} delay={i * 130} fmt={fmt} />;
         })}
       </div>
 

@@ -17,7 +17,7 @@ function TierTile({ tierKey, label, description, count, pct, delay }: {
   tierKey: string; label: string; description: string;
   count: number; pct: number; delay: number;
 }) {
-  const animated = useCountUp(count, 700);
+  const animated = useCountUp(count, 1200);
   const fmt = (v: number) => `${Math.round(v * 100)}%`;
   return (
     <div style={{
@@ -26,7 +26,7 @@ function TierTile({ tierKey, label, description, count, pct, delay }: {
       background: `var(--tier-${tierKey})0f`,
       border: `1.5px solid var(--tier-${tierKey})40`,
       display: 'flex', flexDirection: 'column', gap: 4,
-      animation: `staggerFadeIn 0.4s ease both`,
+      animation: `staggerFadeIn 0.7s ease both`,
       animationDelay: `${delay}ms`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -50,7 +50,7 @@ function TierTile({ tierKey, label, description, count, pct, delay }: {
           background: `var(--tier-${tierKey})`,
           borderRadius: 2,
           transformOrigin: 'left',
-          animation: `scaleInX 0.7s ease both`,
+          animation: `scaleInX 1.1s ease both`,
           animationDelay: `${delay + 100}ms`,
         }} />
       </div>
@@ -76,7 +76,7 @@ export function TierDistributionBar({ data, responseNote }: Props) {
             description={t.description}
             count={data[t.key]}
             pct={total > 0 ? data[t.key] / total : 0}
-            delay={i * 80}
+            delay={i * 130}
           />
         ))}
       </div>

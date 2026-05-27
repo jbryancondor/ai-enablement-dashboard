@@ -84,8 +84,8 @@ export function IndividualDashboard({ history }: Props) {
                   textDecoration: 'none',
                   boxShadow: 'var(--shadow)',
                   transition: 'box-shadow 0.15s, border-color 0.15s',
-                  animation: 'staggerFadeIn 0.35s ease both',
-                  animationDelay: `${i * 40}ms`,
+                  animation: 'staggerFadeIn 0.6s ease both',
+                  animationDelay: `${i * 70}ms`,
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--tier-adopter)';

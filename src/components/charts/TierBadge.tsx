@@ -20,10 +20,9 @@ export function TierBadge({ tier, proficiency }: Props) {
   const [animProficiency, setAnimProficiency] = useState(0);
   useEffect(() => {
     const start = performance.now();
-    const duration = 700;
     let raf: number;
     function tick(now: number) {
-      const t = Math.min((now - start) / duration, 1);
+      const t = Math.min((now - start) / 1200, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       setAnimProficiency(eased * proficiency);
       if (t < 1) raf = requestAnimationFrame(tick);
