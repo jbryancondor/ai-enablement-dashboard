@@ -3,17 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>AI Enablement Dashboard</title>
-    <script>
-      // Redirect SPA routes to index.html preserving the path as a query param.
-      // https://github.com/rafgraph/spa-github-pages
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + 1).join('/') +
-        '/?p=' + encodeURIComponent(l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '')) +
-        l.hash
-      );
-    </script>
+    <meta http-equiv="refresh" content="0;url=/ai-enablement-dashboard/" />
   </head>
   <body></body>
 </html>

@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
 import type { History, InfraSnapshot } from './data/types';
 import { Header } from './components/layout/Header';
 import { SquadDashboard } from './routes/SquadDashboard';
@@ -52,8 +52,8 @@ function AppShell() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppShell />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
