@@ -13,6 +13,12 @@
   --color-l6: #d55e00;
   --color-l7: #cc79a7;
 
+  /* Harness tier colors */
+  --harness-seed:    #94a3b8;
+  --harness-rooted:  #f59e0b;
+  --harness-growing: #0284c7;
+  --harness-mature:  #16a34a;
+
   /* Bullet graph bands */
   --band-poor: #fee2e2;
   --band-ok: #fef9c3;

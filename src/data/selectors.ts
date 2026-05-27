@@ -3,8 +3,8 @@
  * All functions are referentially transparent — no side effects.
  */
 
-import type { History, Submission, InfraSnapshot, Blocker, TierId } from './types';
-import { getTierDef, getNextTier } from './tiers';
+import type { History, Submission, InfraSnapshot, Blocker, TierId, HarnessTierId } from './types';
+import { getTierDef, getNextTier, harnessScoreFromCount, harnessTierForAvg } from './tiers';
 
 // ─── helpers ─────────────────────────────────────────────────────────────────
 
@@ -402,4 +402,58 @@ export function rowsToCSV(rows: TableRow[]): string {
     ),
   ];
   return lines.join('\n');
+}
+
+// ─── Harness selectors ────────────────────────────────────────────────────────
+
+export interface HarnessRow {
+  name: string;
+  path: string;
+  agentsScore: 0 | 1 | 2 | 3;
+  skillsScore: 0 | 1 | 2 | 3;
+  agentsRaw: number;
+  skillsRaw: number;
+  avg: number;
+  tier: HarnessTierId;
+}
+
+export interface HarnessTierDistData {
+  seed: number;
+  rooted: number;
+  growing: number;
+  mature: number;
+  total: number;
+}
+
+export function selectHarnessHeatmap(infra: InfraSnapshot | null): HarnessRow[] {
+  if (!infra) return [];
+  return infra.repos
+    .map(repo => {
+      const agentsScore = harnessScoreFromCount(repo.agentsMdCount);
+      const skillsScore = harnessScoreFromCount(repo.skillCount);
+      const avg = (agentsScore + skillsScore) / 2;
+      return {
+        name: repo.name,
+        path: repo.path,
+        agentsScore,
+        skillsScore,
+        agentsRaw: repo.agentsMdCount,
+        skillsRaw: repo.skillCount,
+        avg,
+        tier: harnessTierForAvg(avg),
+      };
+    })
+    .sort((a, b) => b.avg - a.avg);
+}
+
+export function selectHarnessTierDistribution(infra: InfraSnapshot | null): HarnessTierDistData | null {
+  if (!infra || infra.repos.length === 0) return null;
+  const counts = { seed: 0, rooted: 0, growing: 0, mature: 0 };
+  for (const repo of infra.repos) {
+    const agentsScore = harnessScoreFromCount(repo.agentsMdCount);
+    const skillsScore = harnessScoreFromCount(repo.skillCount);
+    const tier = harnessTierForAvg((agentsScore + skillsScore) / 2);
+    counts[tier]++;
+  }
+  return { ...counts, total: infra.repos.length };
 }

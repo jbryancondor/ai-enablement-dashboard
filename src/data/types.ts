@@ -32,10 +32,12 @@ export interface History {
   submissions: Submission[];
 }
 
+export type HarnessTierId = 'seed' | 'rooted' | 'growing' | 'mature';
+
 export interface Repo {
   path: string;
   name: string;
-  hasAgentsMd: boolean;
+  agentsMdCount: number;
   skillCount: number;
   skills: Array<{ name: string; description: string }>;
 }

@@ -49,6 +49,16 @@
       "rowsSkipped": 12,
       "rowsConflicted": 0,
       "infraSnapshot": "src/data/generated/infra/2026-05-26.json"
+    },
+    {
+      "ingestedAt": "2026-05-27T00:26:17.516102Z",
+      "csvPath": "/Users/bcondor/addi/project/ai-enablement-dashboard/docs/input/AI-Native Engineering — Individual Capability Self-Assessment (Responses) - Form.csv",
+      "csvSha256": "e287da154126d678165baae35d836acd2a6c64899534789b548be0f9ad2aa4e9",
+      "capturedAt": "2026-05-27",
+      "rowsAdded": 0,
+      "rowsSkipped": 12,
+      "rowsConflicted": 0,
+      "infraSnapshot": "src/data/generated/infra/2026-05-27.json"
     }
   ]
 }

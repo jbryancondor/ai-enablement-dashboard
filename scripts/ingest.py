@@ -314,14 +314,13 @@ def run_map_script(repo_path: str) -> str:
         return ""
 
 
-def parse_map_output(output: str) -> tuple[bool, list[dict]]:
+def parse_map_output(output: str) -> tuple[int, list[dict]]:
     """
-    Parse context-engineering-map output to extract AGENTS.md presence and skills.
-    Returns (has_agents_md, [{ name, description }]).
+    Parse context-engineering-map output to extract AGENTS.md count and skills.
+    Returns (agents_md_count, [{ name, description }]).
     """
-    has_agents = "AGENTS.md" in output
+    agents_count = output.count("AGENTS.md")
     skills = []
-    # Lines matching: │   └── skill-name/  description text
     skill_re = re.compile(r"(?:├──|└──)\s+([\w\-]+)/\s{2,}(.+)")
     for line in output.splitlines():
         m = skill_re.search(line)
@@ -330,7 +329,7 @@ def parse_map_output(output: str) -> tuple[bool, list[dict]]:
             desc = m.group(2).strip()
             if name.lower() not in ("agents", ".agents"):
                 skills.append({"name": name, "description": desc})
-    return has_agents, skills
+    return agents_count, skills
 
 
 def build_infra_snapshot(repos: list[str], squad_id: str, captured_at: str) -> dict:
@@ -341,18 +340,18 @@ def build_infra_snapshot(repos: list[str], squad_id: str, captured_at: str) -> d
             continue
         log(f"  scanning {repo_path} …")
         output = run_map_script(repo_path)
-        has_agents, skills = parse_map_output(output)
+        agents_count, skills = parse_map_output(output)
         repo_entries.append({
             "path": repo_path,
             "name": os.path.basename(repo_path),
-            "hasAgentsMd": has_agents,
+            "agentsMdCount": agents_count,
             "skillCount": len(skills),
             "skills": skills,
         })
 
     repo_entries.sort(key=lambda r: r["path"])
     total = len(repo_entries)
-    covered = sum(1 for r in repo_entries if r["hasAgentsMd"])
+    covered = sum(1 for r in repo_entries if r["agentsMdCount"] > 0)
     coverage = round(covered / total, 4) if total > 0 else 0.0
 
     return {
