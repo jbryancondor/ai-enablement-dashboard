@@ -33,9 +33,9 @@ function shortName(name: string): string {
 export function CapabilityHeatmap({ data }: Props) {
   if (data.length === 0) return <EmptyState />;
 
-  const CELL = 36;
-  const NAME_W = 112;
-  const TIER_W = 8;
+  const CELL_H = 36;
+  const NAME_W = 120;
+  const TIER_W = 10;
   const GAP = 2;
   const HEAD_H = 36;
 
@@ -74,13 +74,13 @@ export function CapabilityHeatmap({ data }: Props) {
         </span>
       </div>
 
-      {/* Grid */}
-      <div style={{ overflowX: 'auto' }}>
+      {/* Grid — data columns stretch to fill card width */}
+      <div>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: `${TIER_W}px ${NAME_W}px repeat(${LEVEL_KEYS.length}, ${CELL}px) ${CELL}px`,
+          gridTemplateColumns: `${TIER_W}px ${NAME_W}px repeat(${LEVEL_KEYS.length + 1}, 1fr)`,
           gap: GAP,
-          width: 'fit-content',
+          width: '100%',
         }}>
 
           {/* Header row */}
@@ -101,7 +101,7 @@ export function CapabilityHeatmap({ data }: Props) {
               <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text)' }}>{l}</span>
               <span style={{
                 fontSize: 9, color: 'var(--text-muted)', textAlign: 'center',
-                lineHeight: 1.1, maxWidth: CELL,
+                lineHeight: 1.1, maxWidth: CELL_H,
               }}>
                 {LEVEL_FULL_LABELS[l].split(' ')[0]}
               </span>
@@ -121,7 +121,7 @@ export function CapabilityHeatmap({ data }: Props) {
                 key={`dot-${row.engineerId}`}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  height: CELL,
+                  height: CELL_H,
                 }}
               >
                 <span style={{
@@ -136,7 +136,7 @@ export function CapabilityHeatmap({ data }: Props) {
                 key={`name-${row.engineerId}`}
                 title={row.name}
                 style={{
-                  height: CELL, display: 'flex', alignItems: 'center',
+                  height: CELL_H, display: 'flex', alignItems: 'center',
                   paddingRight: 8, overflow: 'hidden',
                 }}
               >
@@ -157,7 +157,7 @@ export function CapabilityHeatmap({ data }: Props) {
                     key={`${row.engineerId}-${l}`}
                     title={`${shortName(row.name)} · ${l} (${LEVEL_FULL_LABELS[l]}): ${score}/5`}
                     style={{
-                      height: CELL, borderRadius: 4,
+                      height: CELL_H, borderRadius: 4,
                       background: c.bg, color: c.fg,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: 12, fontWeight: 700,
@@ -177,7 +177,7 @@ export function CapabilityHeatmap({ data }: Props) {
                 key={`avg-${row.engineerId}`}
                 title={`Overall avg: ${rowAvg.toFixed(1)}/5`}
                 style={{
-                  height: CELL, borderRadius: 4,
+                  height: CELL_H, borderRadius: 4,
                   background: avgColor.bg, color: avgColor.fg,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 11, fontWeight: 700,
@@ -192,7 +192,7 @@ export function CapabilityHeatmap({ data }: Props) {
           {/* Squad average row */}
           <div />
           <div style={{
-            height: CELL, display: 'flex', alignItems: 'center', paddingRight: 8,
+            height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8,
             borderTop: `2px solid var(--border)`, marginTop: 2,
           }}>
             <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)' }}>Squad avg</span>
@@ -205,7 +205,7 @@ export function CapabilityHeatmap({ data }: Props) {
                 key={`avg-${l}`}
                 title={`Squad average ${l}: ${avg.toFixed(1)}/5`}
                 style={{
-                  height: CELL, borderRadius: 4,
+                  height: CELL_H, borderRadius: 4,
                   background: c.bg, color: c.fg,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 11, fontWeight: 700,

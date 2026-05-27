@@ -45,9 +45,9 @@ function shortRepoName(name: string, path: string): string {
 export function HarnessHeatmap({ data }: Props) {
   if (data.length === 0) return <EmptyState message="No repos scanned yet." />;
 
-  const CELL = 52;
-  const NAME_W = 130;
-  const TIER_W = 8;
+  const CELL_H = 52;
+  const NAME_W = 140;
+  const TIER_W = 10;
   const GAP = 2;
   const HEAD_H = 40;
 
@@ -81,13 +81,13 @@ export function HarnessHeatmap({ data }: Props) {
         </span>
       </div>
 
-      {/* Grid */}
-      <div style={{ overflowX: 'auto' }}>
+      {/* Grid — data columns stretch to fill card width */}
+      <div>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: `${TIER_W}px ${NAME_W}px repeat(${DIMS.length}, ${CELL}px) ${CELL}px`,
+          gridTemplateColumns: `${TIER_W}px ${NAME_W}px repeat(${DIMS.length + 1}, 1fr)`,
           gap: GAP,
-          width: 'fit-content',
+          width: '100%',
         }}>
           {/* Header */}
           <div />
@@ -112,11 +112,11 @@ export function HarnessHeatmap({ data }: Props) {
             const avgColor = SCORE_COLORS[Math.round(row.avg)];
             const displayName = shortRepoName(row.name, row.path);
             return [
-              <div key={`dot-${row.path}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: CELL }}>
+              <div key={`dot-${row.path}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: CELL_H }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: HARNESS_TIER_COLORS[row.tier], display: 'inline-block' }} title={row.tier} />
               </div>,
 
-              <div key={`name-${row.path}`} title={`${row.path} · tier: ${row.tier}`} style={{ height: CELL, display: 'flex', alignItems: 'center', paddingRight: 8, overflow: 'hidden' }}>
+              <div key={`name-${row.path}`} title={`${row.path} · tier: ${row.tier}`} style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, overflow: 'hidden' }}>
                 <span style={{ fontSize: 11, color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {displayName}
                 </span>
@@ -131,7 +131,7 @@ export function HarnessHeatmap({ data }: Props) {
                     key={`${row.path}-${d.key}`}
                     title={`${displayName} · ${d.label}: ${raw} (score ${score} — ${SCORE_LABELS[score]})`}
                     style={{
-                      height: CELL, borderRadius: 4,
+                      height: CELL_H, borderRadius: 4,
                       background: c.bg, color: c.fg,
                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                       gap: 2, cursor: 'default', transition: 'transform 0.1s',
@@ -146,7 +146,7 @@ export function HarnessHeatmap({ data }: Props) {
               }),
 
               <div key={`avg-${row.path}`} title={`Overall avg: ${row.avg.toFixed(1)}/3`} style={{
-                height: CELL, borderRadius: 4,
+                height: CELL_H, borderRadius: 4,
                 background: avgColor.bg, color: avgColor.fg,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 12, fontWeight: 700, opacity: 0.85,
@@ -158,7 +158,7 @@ export function HarnessHeatmap({ data }: Props) {
 
           {/* Squad avg row */}
           <div />
-          <div style={{ height: CELL, display: 'flex', alignItems: 'center', paddingRight: 8, borderTop: '2px solid var(--border)', marginTop: 2 }}>
+          <div style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, borderTop: '2px solid var(--border)', marginTop: 2 }}>
             <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)' }}>Repo avg</span>
           </div>
           {DIMS.map((d, i) => {
@@ -166,7 +166,7 @@ export function HarnessHeatmap({ data }: Props) {
             const c = SCORE_COLORS[Math.round(avg)];
             return (
               <div key={`avg-dim-${d.key}`} style={{
-                height: CELL, borderRadius: 4,
+                height: CELL_H, borderRadius: 4,
                 background: c.bg, color: c.fg,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 12, fontWeight: 700,
@@ -177,7 +177,7 @@ export function HarnessHeatmap({ data }: Props) {
             );
           })}
           <div style={{
-            height: CELL, borderRadius: 4,
+            height: CELL_H, borderRadius: 4,
             background: SCORE_COLORS[Math.round(overallAvg)].bg,
             color: SCORE_COLORS[Math.round(overallAvg)].fg,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
