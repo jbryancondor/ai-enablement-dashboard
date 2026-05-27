@@ -1,4 +1,5 @@
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import type { History, TierId, LevelScores } from '../data/types';
 import {
   selectEngineerProfile,
@@ -72,9 +73,9 @@ export function IndividualDashboard({ history }: Props) {
             const tier = sub?.tier ?? 'explorer';
             const score = sub ? (sub.proficiency * 5).toFixed(1) : '—';
             return (
-              <a
+              <Link
                 key={eng.id}
-                href={`/individuals/${eng.id}${month ? `?month=${month}` : ''}`}
+                to={`/individuals/${eng.id}${month ? `?month=${month}` : ''}`}
                 style={{
                   display: 'flex', flexDirection: 'column', gap: 6,
                   padding: '16px', borderRadius: 8,
@@ -107,7 +108,7 @@ export function IndividualDashboard({ history }: Props) {
                   </span>
                   <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>{score} / 5</span>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
