@@ -54,15 +54,18 @@ export function GapsTable({ rows, month }: Props) {
 
   if (rows.length === 0) return <EmptyState />;
 
+  const TIER_RANK: Record<string, number> = { explorer: 0, adopter: 1, champion: 2 };
+
   function handleSort(key: SortKey) {
     if (key === sortKey) setSortAsc(a => !a);
     else { setSortKey(key); setSortAsc(key === 'name'); }
   }
 
   const sorted = [...rows].sort((a, b) => {
-    const av = a[sortKey] ?? '';
-    const bv = b[sortKey] ?? '';
-    const cmp = String(av).localeCompare(String(bv), undefined, { numeric: true });
+    const cmp =
+      sortKey === 'proficiency' ? a.proficiency - b.proficiency :
+      sortKey === 'tier'        ? (TIER_RANK[a.tier] ?? 0) - (TIER_RANK[b.tier] ?? 0) :
+                                  (a.name || a.email).localeCompare(b.name || b.email);
     return sortAsc ? cmp : -cmp;
   });
 

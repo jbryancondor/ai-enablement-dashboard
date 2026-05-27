@@ -1,8 +1,8 @@
 :root {
-  /* Tier colors — WCAG AA verified on white */
-  --tier-explorer: #64748b;
-  --tier-adopter: #0284c7;
-  --tier-champion: #d97706;
+  /* Tier colors — Option 3: Semantic Progression (Material Design inspired) */
+  --tier-explorer: #475569;
+  --tier-adopter:  #0284c7;
+  --tier-champion: #7c3aed;
 
   /* Okabe-Ito colorblind-safe categorical palette */
   --color-l1: #e69f00;
@@ -13,10 +13,10 @@
   --color-l6: #d55e00;
   --color-l7: #cc79a7;
 
-  /* Harness tier colors */
+  /* Harness tier colors — Option 3: warm semantic progression */
   --harness-seed:    #94a3b8;
-  --harness-rooted:  #f59e0b;
-  --harness-growing: #0284c7;
+  --harness-rooted:  #d97706;
+  --harness-growing: #65a30d;
   --harness-mature:  #16a34a;
 
   /* Bullet graph bands */

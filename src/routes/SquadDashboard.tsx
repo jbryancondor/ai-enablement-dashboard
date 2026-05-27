@@ -80,8 +80,8 @@ export function SquadDashboard({ history, infra }: Props) {
   return (
     <div style={{ padding: '28px 32px', maxWidth: 1500, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
 
-      {/* Two-column layout: Individual | Harness */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'start' }}>
+      {/* Two-column layout: Individual | Harness — stretch so both columns share the same total height */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'stretch' }}>
 
         {/* ── Left: Individual Capability ── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -89,7 +89,7 @@ export function SquadDashboard({ history, infra }: Props) {
           <Card title="Tier Distribution">
             <TierDistributionBar data={tierDist} responseNote={responseNote} />
           </Card>
-          <Card title="Capability Profile — L1 to L7">
+          <Card title="Capability Profile — L1 to L7" style={{ flex: 1 }}>
             <CapabilityHeatmap data={capHeatmap} />
           </Card>
         </div>
@@ -100,7 +100,7 @@ export function SquadDashboard({ history, infra }: Props) {
           <Card title="Harness Tier Distribution">
             <HarnessTierDistribution data={harnessTiers} scanNote={scanNote} />
           </Card>
-          <Card title="Repo Profile — Agents · Skills">
+          <Card title="Repo Profile — Agents · Skills" style={{ flex: 1 }}>
             <HarnessHeatmap data={harnessHeatmap} />
           </Card>
         </div>

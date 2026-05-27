@@ -7,14 +7,14 @@ interface Props {
   data: HeatmapRow[];
 }
 
-// Purple sequential scale — visually distinct from tier colors
+// Blue sequential scale — distinct from Harness tier colors (violet/cyan/green)
 const SCORE_COLORS: Record<number, { bg: string; fg: string }> = {
   0: { bg: '#f1f5f9', fg: '#94a3b8' },
-  1: { bg: '#ede9fe', fg: '#6d28d9' },
-  2: { bg: '#c4b5fd', fg: '#4c1d95' },
-  3: { bg: '#8b5cf6', fg: '#ffffff' },
-  4: { bg: '#6d28d9', fg: '#ffffff' },
-  5: { bg: '#4c1d95', fg: '#ffffff' },
+  1: { bg: '#dbeafe', fg: '#1e40af' },
+  2: { bg: '#93c5fd', fg: '#1e3a8a' },
+  3: { bg: '#3b82f6', fg: '#ffffff' },
+  4: { bg: '#1d4ed8', fg: '#ffffff' },
+  5: { bg: '#1e3a8a', fg: '#ffffff' },
 };
 
 const TIER_DOTS: Record<TierId, string> = {
@@ -50,10 +50,10 @@ export function CapabilityHeatmap({ data }: Props) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       {/* Legend */}
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-        <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600 }}>Score:</span>
+      <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+        <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600, marginRight: 2 }}>Score:</span>
         {[0, 1, 2, 3, 4, 5].map(s => (
-          <span key={s} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'var(--text-muted)' }}>
+          <span key={s} style={{ display: 'flex', alignItems: 'center', gap: 3, fontSize: 11, color: 'var(--text-muted)' }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
               width: 22, height: 22, borderRadius: 4,

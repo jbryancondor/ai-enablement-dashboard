@@ -7,11 +7,12 @@ interface Props {
 }
 
 // Same purple sequential scale as CapabilityHeatmap, mapped to 0–3
+// Blue sequential scale — same language as CapabilityHeatmap, mapped to 0–3
 const SCORE_COLORS: Record<number, { bg: string; fg: string }> = {
   0: { bg: '#f1f5f9', fg: '#94a3b8' },
-  1: { bg: '#c4b5fd', fg: '#4c1d95' },
-  2: { bg: '#8b5cf6', fg: '#ffffff' },
-  3: { bg: '#4c1d95', fg: '#ffffff' },
+  1: { bg: '#dbeafe', fg: '#1e40af' },
+  2: { bg: '#3b82f6', fg: '#ffffff' },
+  3: { bg: '#1e3a8a', fg: '#ffffff' },
 };
 
 const SCORE_LABELS: Record<number, string> = {
@@ -21,33 +22,34 @@ const SCORE_LABELS: Record<number, string> = {
   3: 'Mature (>10)',
 };
 
-const HARNESS_TIER_COLORS: Record<HarnessTierId, string> = {
+const TIER_DOTS: Record<HarnessTierId, string> = {
   seed:    'var(--harness-seed)',
   rooted:  'var(--harness-rooted)',
   growing: 'var(--harness-growing)',
   mature:  'var(--harness-mature)',
 };
 
+const TIER_LABELS: HarnessTierId[] = ['seed', 'rooted', 'growing', 'mature'];
+
 const DIMS = [
   { key: 'agentsScore' as const, rawKey: 'agentsRaw' as const, label: 'AGENTS.md', short: 'Agents' },
   { key: 'skillsScore' as const, rawKey: 'skillsRaw' as const, label: 'Skills',    short: 'Skills' },
 ];
 
-function shortRepoName(name: string, path: string): string {
-  // Prefix with domain context from path
-  if (path.includes('ai-native')) return `ai/ ${name}`;
-  if (path.includes('backend-jvm-legacy')) return `legacy/ ${name}`;
-  if (path.includes('backend-jvm')) return `jvm/ ${name}`;
-  if (path.includes('ui/')) return `ui/ ${name}`;
-  return name;
+/** Return a readable relative path stripped of the common platform root. */
+function repoDisplayName(path: string): string {
+  // Strip everything up to and including the last occurrence of a known root segment
+  const marker = '/platform/';
+  const idx = path.lastIndexOf(marker);
+  return idx !== -1 ? path.slice(idx + marker.length) : path;
 }
 
 export function HarnessHeatmap({ data }: Props) {
   if (data.length === 0) return <EmptyState message="No repos scanned yet." />;
 
-  const CELL_H = 52;
-  const NAME_W = 140;
+  const CELL_H = 36;
   const TIER_W = 10;
+  const NAME_W = 220;
   const GAP = 2;
   const HEAD_H = 40;
 
@@ -57,7 +59,7 @@ export function HarnessHeatmap({ data }: Props) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      {/* Legend */}
+      {/* Legend: score scale + tier dots */}
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
         <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 600 }}>Score:</span>
         {[0, 1, 2, 3].map(s => (
@@ -68,13 +70,13 @@ export function HarnessHeatmap({ data }: Props) {
               background: SCORE_COLORS[s].bg, color: SCORE_COLORS[s].fg,
               fontSize: 11, fontWeight: 700,
             }}>{s}</span>
-            {s === 0 ? 'none' : s === 3 ? '>10' : s === 1 ? '1–5' : '6–10'}
+            {s === 0 ? 'none' : s === 1 ? '1–5' : s === 2 ? '6–10' : '>10'}
           </span>
         ))}
         <span style={{ marginLeft: 'auto', display: 'flex', gap: 10 }}>
-          {(['mature', 'growing', 'rooted', 'seed'] as HarnessTierId[]).map(t => (
+          {TIER_LABELS.map(t => (
             <span key={t} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'var(--text-muted)' }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: HARNESS_TIER_COLORS[t], display: 'inline-block' }} />
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: TIER_DOTS[t], display: 'inline-block' }} />
               {t.charAt(0).toUpperCase() + t.slice(1)}
             </span>
           ))}
@@ -90,7 +92,7 @@ export function HarnessHeatmap({ data }: Props) {
           width: '100%',
         }}>
           {/* Header */}
-          <div />
+          <div /> {/* tier dot col */}
           <div style={{ display: 'flex', alignItems: 'flex-end', paddingBottom: 4 }}>
             <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 600 }}>Repo</span>
           </div>
@@ -110,10 +112,10 @@ export function HarnessHeatmap({ data }: Props) {
           {/* Data rows */}
           {data.map(row => {
             const avgColor = SCORE_COLORS[Math.round(row.avg)];
-            const displayName = shortRepoName(row.name, row.path);
+            const displayName = repoDisplayName(row.path);
             return [
               <div key={`dot-${row.path}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: CELL_H }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: HARNESS_TIER_COLORS[row.tier], display: 'inline-block' }} title={row.tier} />
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: TIER_DOTS[row.tier], display: 'inline-block' }} title={row.tier} />
               </div>,
 
               <div key={`name-${row.path}`} title={`${row.path} · tier: ${row.tier}`} style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, overflow: 'hidden' }}>
@@ -156,7 +158,7 @@ export function HarnessHeatmap({ data }: Props) {
             ];
           })}
 
-          {/* Squad avg row */}
+          {/* Repo avg row */}
           <div />
           <div style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, borderTop: '2px solid var(--border)', marginTop: 2 }}>
             <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)' }}>Repo avg</span>
@@ -190,7 +192,7 @@ export function HarnessHeatmap({ data }: Props) {
       </div>
 
       <p style={{ margin: 0, fontSize: 11, color: 'var(--text-muted)' }}>
-        Sorted by avg score · hover for raw count · ×N = raw file count · dot = harness tier
+        Sorted by avg score · hover for raw count · ×N = raw file count
       </p>
     </div>
   );

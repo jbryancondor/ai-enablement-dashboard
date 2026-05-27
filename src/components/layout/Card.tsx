@@ -1,12 +1,13 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 interface CardProps {
   title: string;
   children: ReactNode;
   action?: ReactNode;
+  style?: CSSProperties;
 }
 
-export function Card({ title, children, action }: CardProps) {
+export function Card({ title, children, action, style }: CardProps) {
   return (
     <div style={{
       background: 'var(--surface)',
@@ -17,6 +18,7 @@ export function Card({ title, children, action }: CardProps) {
       display: 'flex',
       flexDirection: 'column',
       gap: 16,
+      ...style,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{title}</h3>
