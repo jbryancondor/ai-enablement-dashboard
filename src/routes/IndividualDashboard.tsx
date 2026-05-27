@@ -42,7 +42,7 @@ export function IndividualDashboard({ history }: Props) {
   }
 
   return (
-    <div style={{ padding: '28px 32px', maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+    <div className="anim-fade-in" style={{ padding: '28px 32px', maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
       {/* Engineer selector */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <label style={{ fontSize: 13, color: 'var(--text-muted)' }}>Engineer</label>
@@ -68,7 +68,7 @@ export function IndividualDashboard({ history }: Props) {
           gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
           gap: 12,
         }}>
-          {engList.map(eng => {
+          {engList.map((eng, i) => {
             const sub = latestSubs.find(s => s.engineerId === eng.id);
             const tier = sub?.tier ?? 'explorer';
             const score = sub ? (sub.proficiency * 5).toFixed(1) : '—';
@@ -84,6 +84,8 @@ export function IndividualDashboard({ history }: Props) {
                   textDecoration: 'none',
                   boxShadow: 'var(--shadow)',
                   transition: 'box-shadow 0.15s, border-color 0.15s',
+                  animation: 'staggerFadeIn 0.35s ease both',
+                  animationDelay: `${i * 40}ms`,
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--tier-adopter)';

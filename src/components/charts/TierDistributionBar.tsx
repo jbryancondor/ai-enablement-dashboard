@@ -1,4 +1,5 @@
 import type { TierDistributionData } from '../../data/selectors';
+import { useCountUp } from '../../hooks/useCountUp';
 import { EmptyState } from '../layout/EmptyState';
 
 interface Props {
@@ -12,6 +13,51 @@ const TIERS = [
   { key: 'explorer' as const, label: 'Explorer', description: 'Getting started'   },
 ];
 
+function TierTile({ tierKey, label, description, count, pct, delay }: {
+  tierKey: string; label: string; description: string;
+  count: number; pct: number; delay: number;
+}) {
+  const animated = useCountUp(count, 700);
+  const fmt = (v: number) => `${Math.round(v * 100)}%`;
+  return (
+    <div style={{
+      borderRadius: 10,
+      padding: '14px 16px',
+      background: `var(--tier-${tierKey})0f`,
+      border: `1.5px solid var(--tier-${tierKey})40`,
+      display: 'flex', flexDirection: 'column', gap: 4,
+      animation: `staggerFadeIn 0.4s ease both`,
+      animationDelay: `${delay}ms`,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        <span style={{
+          display: 'inline-block', width: 10, height: 10, borderRadius: '50%',
+          background: `var(--tier-${tierKey})`, flexShrink: 0,
+        }} />
+        <span style={{ fontSize: 12, fontWeight: 600, color: `var(--tier-${tierKey})`, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+          {label}
+        </span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+        <span style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{animated}</span>
+        <span style={{ fontSize: 15, color: 'var(--text-muted)', fontWeight: 500 }}>{fmt(pct)}</span>
+      </div>
+      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{description}</div>
+      <div style={{ marginTop: 4, height: 4, borderRadius: 2, background: 'var(--border)', overflow: 'hidden' }}>
+        <div style={{
+          height: '100%',
+          width: `${pct * 100}%`,
+          background: `var(--tier-${tierKey})`,
+          borderRadius: 2,
+          transformOrigin: 'left',
+          animation: `scaleInX 0.7s ease both`,
+          animationDelay: `${delay + 100}ms`,
+        }} />
+      </div>
+    </div>
+  );
+}
+
 export function TierDistributionBar({ data, responseNote }: Props) {
   if (!data) return <EmptyState />;
 
@@ -22,43 +68,17 @@ export function TierDistributionBar({ data, responseNote }: Props) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       {/* 3 stat tiles */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
-        {TIERS.map(t => {
-          const count = data[t.key];
-          const pct = total > 0 ? count / total : 0;
-          return (
-            <div key={t.key} style={{
-              borderRadius: 10,
-              padding: '14px 16px',
-              background: `var(--tier-${t.key})0f`,
-              border: `1.5px solid var(--tier-${t.key})40`,
-              display: 'flex', flexDirection: 'column', gap: 4,
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{
-                  display: 'inline-block', width: 10, height: 10, borderRadius: '50%',
-                  background: `var(--tier-${t.key})`, flexShrink: 0,
-                }} />
-                <span style={{ fontSize: 12, fontWeight: 600, color: `var(--tier-${t.key})`, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  {t.label}
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                <span style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{count}</span>
-                <span style={{ fontSize: 15, color: 'var(--text-muted)', fontWeight: 500 }}>{fmt(pct)}</span>
-              </div>
-              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{t.description}</div>
-              {/* Mini progress bar per tier */}
-              <div style={{ marginTop: 4, height: 4, borderRadius: 2, background: 'var(--border)', overflow: 'hidden' }}>
-                <div style={{
-                  height: '100%', width: `${pct * 100}%`,
-                  background: `var(--tier-${t.key})`,
-                  borderRadius: 2,
-                  transition: 'width 0.4s ease',
-                }} />
-              </div>
-            </div>
-          );
-        })}
+        {TIERS.map((t, i) => (
+          <TierTile
+            key={t.key}
+            tierKey={t.key}
+            label={t.label}
+            description={t.description}
+            count={data[t.key]}
+            pct={total > 0 ? data[t.key] / total : 0}
+            delay={i * 80}
+          />
+        ))}
       </div>
 
       {/* Full distribution bar at bottom */}

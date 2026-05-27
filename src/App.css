@@ -9,6 +9,41 @@ body {
   background: var(--surface-muted);
 }
 
+/* ── Animations ────────────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInFast {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes barFill {
+  from { width: 0%; }
+  to   { width: var(--bar-target); }
+}
+
+@keyframes staggerFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleInX {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.35s ease both;
+}
+
+.anim-fade-in-fast {
+  animation: fadeInFast 0.25s ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

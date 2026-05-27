@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Star, TrendingUp, Compass } from 'lucide-react';
 import type { TierId } from '../../data/types';
 
@@ -15,7 +16,22 @@ const TIER_CONFIG = {
 export function TierBadge({ tier, proficiency }: Props) {
   const cfg = TIER_CONFIG[tier];
   const Icon = cfg.icon;
-  const avgScore = (proficiency * 5).toFixed(1);
+  // Animate score from 0 → actual on mount
+  const [animProficiency, setAnimProficiency] = useState(0);
+  useEffect(() => {
+    const start = performance.now();
+    const duration = 700;
+    let raf: number;
+    function tick(now: number) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setAnimProficiency(eased * proficiency);
+      if (t < 1) raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [proficiency]);
+  const avgScore = (animProficiency * 5).toFixed(1);
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -34,7 +50,7 @@ export function TierBadge({ tier, proficiency }: Props) {
       </div>
 
       {/* Radial progress */}
-      <RadialProgress value={proficiency} color={cfg.color} />
+      <RadialProgress value={animProficiency} color={cfg.color} />
     </div>
   );
 }

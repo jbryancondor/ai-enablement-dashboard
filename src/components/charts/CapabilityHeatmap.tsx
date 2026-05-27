@@ -112,9 +112,10 @@ export function CapabilityHeatmap({ data }: Props) {
           </div>
 
           {/* Data rows */}
-          {data.map(row => {
+          {data.map((row, rowIdx) => {
             const rowAvg = LEVEL_KEYS.reduce((s, l) => s + (row.scores[l] ?? 0), 0) / LEVEL_KEYS.length;
             const avgColor = SCORE_COLORS[Math.round(rowAvg)];
+            const rowDelay = rowIdx * 30;
             return [
               // Tier dot
               <div
@@ -122,6 +123,8 @@ export function CapabilityHeatmap({ data }: Props) {
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   height: CELL_H,
+                  animation: 'staggerFadeIn 0.35s ease both',
+                  animationDelay: `${rowDelay}ms`,
                 }}
               >
                 <span style={{
@@ -138,6 +141,8 @@ export function CapabilityHeatmap({ data }: Props) {
                 style={{
                   height: CELL_H, display: 'flex', alignItems: 'center',
                   paddingRight: 8, overflow: 'hidden',
+                  animation: 'staggerFadeIn 0.35s ease both',
+                  animationDelay: `${rowDelay}ms`,
                 }}
               >
                 <span style={{
@@ -163,6 +168,8 @@ export function CapabilityHeatmap({ data }: Props) {
                       fontSize: 12, fontWeight: 700,
                       cursor: 'default',
                       transition: 'transform 0.1s',
+                      animation: 'staggerFadeIn 0.35s ease both',
+                      animationDelay: `${rowDelay}ms`,
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.12)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)'; }}

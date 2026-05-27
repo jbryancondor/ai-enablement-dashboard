@@ -35,7 +35,9 @@ export function NextTierProgress({ profile }: Props) {
             width: `${progressPct * 100}%`,
             background: nextDef ? `var(--tier-${nextDef.id})` : 'var(--tier-champion)',
             borderRadius: 5,
-            transition: 'width 0.3s',
+            transformOrigin: 'left',
+            animation: 'scaleInX 0.8s ease both',
+            animationDelay: '100ms',
           }} />
         </div>
       </div>

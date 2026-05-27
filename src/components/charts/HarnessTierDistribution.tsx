@@ -1,10 +1,46 @@
 import type { HarnessTierDistData } from '../../data/selectors';
 import { HARNESS_TIERS } from '../../data/tiers';
+import { useCountUp } from '../../hooks/useCountUp';
 import { EmptyState } from '../layout/EmptyState';
 
 interface Props {
   data: HarnessTierDistData | null;
   scanNote?: string | null;
+}
+
+function HarnessTile({ t, count, pct, delay, fmt }: {
+  t: { id: string; label: string; color: string; description: string };
+  count: number; pct: number; delay: number;
+  fmt: (v: number) => string;
+}) {
+  const animated = useCountUp(count, 700);
+  return (
+    <div style={{
+      borderRadius: 10, padding: '12px 14px',
+      background: `${t.color}0f`, border: `1.5px solid ${t.color}40`,
+      display: 'flex', flexDirection: 'column', gap: 4,
+      animation: 'staggerFadeIn 0.4s ease both',
+      animationDelay: `${delay}ms`,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: t.color, flexShrink: 0 }} />
+        <span style={{ fontSize: 11, fontWeight: 700, color: t.color, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{t.label}</span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 5 }}>
+        <span style={{ fontSize: 28, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{animated}</span>
+        <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 500 }}>{fmt(pct)}</span>
+      </div>
+      <div style={{ fontSize: 10, color: 'var(--text-muted)', lineHeight: 1.3 }}>{t.description}</div>
+      <div style={{ marginTop: 4, height: 3, borderRadius: 2, background: 'var(--border)', overflow: 'hidden' }}>
+        <div style={{
+          height: '100%', width: `${pct * 100}%`, background: t.color, borderRadius: 2,
+          transformOrigin: 'left',
+          animation: 'scaleInX 0.7s ease both',
+          animationDelay: `${delay + 100}ms`,
+        }} />
+      </div>
+    </div>
+  );
 }
 
 export function HarnessTierDistribution({ data, scanNote }: Props) {
@@ -17,40 +53,10 @@ export function HarnessTierDistribution({ data, scanNote }: Props) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       {/* 4 stat tiles */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8 }}>
-        {HARNESS_TIERS.map(t => {
+        {HARNESS_TIERS.map((t, i) => {
           const count = data[t.id];
           const pct = total > 0 ? count / total : 0;
-          return (
-            <div key={t.id} style={{
-              borderRadius: 10,
-              padding: '12px 14px',
-              background: `${t.color}0f`,
-              border: `1.5px solid ${t.color}40`,
-              display: 'flex', flexDirection: 'column', gap: 4,
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                <span style={{
-                  display: 'inline-block', width: 8, height: 8, borderRadius: '50%',
-                  background: t.color, flexShrink: 0,
-                }} />
-                <span style={{ fontSize: 11, fontWeight: 700, color: t.color, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  {t.label}
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 5 }}>
-                <span style={{ fontSize: 28, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{count}</span>
-                <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 500 }}>{fmt(pct)}</span>
-              </div>
-              <div style={{ fontSize: 10, color: 'var(--text-muted)', lineHeight: 1.3 }}>{t.description}</div>
-              <div style={{ marginTop: 4, height: 3, borderRadius: 2, background: 'var(--border)', overflow: 'hidden' }}>
-                <div style={{
-                  height: '100%', width: `${pct * 100}%`,
-                  background: t.color, borderRadius: 2,
-                  transition: 'width 0.4s ease',
-                }} />
-              </div>
-            </div>
-          );
+          return <HarnessTile key={t.id} t={t} count={count} pct={pct} delay={i * 80} fmt={fmt} />;
         })}
       </div>
 

@@ -78,7 +78,7 @@ export function SquadDashboard({ history, infra }: Props) {
   );
 
   return (
-    <div style={{ padding: '28px 32px', maxWidth: 1500, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="anim-fade-in" style={{ padding: '28px 32px', maxWidth: 1500, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
 
       {/* Two-column layout: Individual | Harness — stretch so both columns share the same total height */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'stretch' }}>

@@ -110,15 +110,16 @@ export function HarnessHeatmap({ data }: Props) {
           </div>
 
           {/* Data rows */}
-          {data.map(row => {
+          {data.map((row, rowIdx) => {
             const avgColor = SCORE_COLORS[Math.round(row.avg)];
             const displayName = repoDisplayName(row.path);
+            const rowDelay = rowIdx * 35;
             return [
-              <div key={`dot-${row.path}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: CELL_H }}>
+              <div key={`dot-${row.path}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: CELL_H, animation: 'staggerFadeIn 0.35s ease both', animationDelay: `${rowDelay}ms` }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: TIER_DOTS[row.tier], display: 'inline-block' }} title={row.tier} />
               </div>,
 
-              <div key={`name-${row.path}`} title={`${row.path} · tier: ${row.tier}`} style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, overflow: 'hidden' }}>
+              <div key={`name-${row.path}`} title={`${row.path} · tier: ${row.tier}`} style={{ height: CELL_H, display: 'flex', alignItems: 'center', paddingRight: 8, overflow: 'hidden', animation: 'staggerFadeIn 0.35s ease both', animationDelay: `${rowDelay}ms` }}>
                 <span style={{ fontSize: 11, color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {displayName}
                 </span>
@@ -137,6 +138,8 @@ export function HarnessHeatmap({ data }: Props) {
                       background: c.bg, color: c.fg,
                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                       gap: 2, cursor: 'default', transition: 'transform 0.1s',
+                      animation: 'staggerFadeIn 0.35s ease both',
+                      animationDelay: `${rowDelay}ms`,
                     }}
                     onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.08)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)'; }}
@@ -152,6 +155,8 @@ export function HarnessHeatmap({ data }: Props) {
                 background: avgColor.bg, color: avgColor.fg,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 12, fontWeight: 700, opacity: 0.85,
+                animation: 'staggerFadeIn 0.35s ease both',
+                animationDelay: `${rowDelay}ms`,
               }}>
                 {row.avg.toFixed(1)}
               </div>,
