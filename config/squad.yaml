@@ -9,7 +9,6 @@ repos:
   # ai-native-backend-jvm — merchant domain
   - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/bills
   - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/cancellations
-  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/merchant-configuration
   - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/merchant-core
   - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/payments
 
