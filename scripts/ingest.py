@@ -48,6 +48,8 @@ COL_NAME = "Full name"
 COL_TIMESTAMP = "Timestamp"
 COL_GAP = "Biggest gap"
 COL_ACTIONS = "1"  # prefix match
+COL_HACKATHON_TAKEAWAY = "Which takeaway"
+COL_HACKATHON_PLAN = "What of them"
 
 # Tier thresholds (mirrors src/data/tiers.ts)
 CHAMPION_MIN = 3.5
@@ -167,6 +169,8 @@ def parse_csv(csv_path: str) -> list[dict]:
         headers = reader.fieldnames or []
         col_gap = find_col(headers, "Biggest gap") or find_col(headers, "Biggest") or ""
         col_actions = find_col(headers, "1\u20132 actions") or find_col(headers, "1-2 actions") or find_col(headers, "1\u20132") or ""
+        col_hackathon_takeaway = find_col(headers, COL_HACKATHON_TAKEAWAY) or ""
+        col_hackathon_plan = find_col(headers, COL_HACKATHON_PLAN) or ""
         # Find L1..L7 column names
         level_cols: dict[str, str] = {}
         for lvl in LEVEL_COLS:
@@ -199,6 +203,8 @@ def parse_csv(csv_path: str) -> list[dict]:
                 "tier": score_to_tier(avg),
                 "biggestGap": (row.get(col_gap) or "").strip() or None,
                 "plannedActions": (row.get(col_actions) or "").strip() or None,
+                "hackathonTakeaway": (row.get(col_hackathon_takeaway) or "").strip() or None,
+                "hackathonPlan": (row.get(col_hackathon_plan) or "").strip() or None,
             })
     return rows
 
@@ -273,6 +279,8 @@ def merge_submissions(
             "tier": row["tier"],
             "biggestGap": row["biggestGap"],
             "plannedActions": row["plannedActions"],
+            "hackathonTakeaway": row["hackathonTakeaway"],
+            "hackathonPlan": row["hackathonPlan"],
         }
 
         if key not in existing_map:

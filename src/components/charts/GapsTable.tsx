@@ -70,7 +70,7 @@ export function GapsTable({ rows, month }: Props) {
   });
 
   function exportCSV() {
-    const headers = ['Name', 'Email', 'Tier', 'Avg Score', 'Biggest Gap', 'Planned Actions', 'Submitted At'];
+    const headers = ['Name', 'Email', 'Tier', 'Avg Score', 'Biggest Gap', 'Planned Actions', 'Hackathon Takeaway', 'Hackathon Plan', 'Submitted At'];
     const escape = (v: unknown) => {
       const s = String(v ?? '').replace(/"/g, '""');
       return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s}"` : s;
@@ -80,7 +80,7 @@ export function GapsTable({ rows, month }: Props) {
       ...sorted.map(r => [
         r.name, r.email, r.tier,
         (r.proficiency * 5).toFixed(1),
-        r.biggestGap, r.plannedActions, r.submittedAt,
+        r.biggestGap, r.plannedActions, r.hackathonTakeaway, r.hackathonPlan, r.submittedAt,
       ].map(escape).join(',')),
     ];
     const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
@@ -119,28 +119,25 @@ export function GapsTable({ rows, month }: Props) {
             <col style={{ width: 150 }} />
             <col style={{ width: 100 }} />
             <col style={{ width: 72 }} />
-            <col style={{ width: '50%' }} />
-            <col style={{ width: '50%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
           </colgroup>
           <thead>
             <tr>
               <SortTh col="name"        label="Engineer"  sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
               <SortTh col="tier"        label="Tier"      sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
               <SortTh col="proficiency" label="Score"     sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
-              <th style={{
-                padding: '10px 14px', textAlign: 'left', fontSize: 12, fontWeight: 600,
-                color: 'var(--text-muted)', background: 'var(--surface-muted)',
-                borderBottom: '2px solid var(--border)',
-              }}>
-                Biggest Gap
-              </th>
-              <th style={{
-                padding: '10px 14px', textAlign: 'left', fontSize: 12, fontWeight: 600,
-                color: 'var(--text-muted)', background: 'var(--surface-muted)',
-                borderBottom: '2px solid var(--border)',
-              }}>
-                Planned Actions
-              </th>
+              {(['Biggest Gap', 'Planned Actions', 'Hackathon Takeaway', 'Hackathon Plan'] as const).map(label => (
+                <th key={label} style={{
+                  padding: '10px 14px', textAlign: 'left', fontSize: 12, fontWeight: 600,
+                  color: 'var(--text-muted)', background: 'var(--surface-muted)',
+                  borderBottom: '2px solid var(--border)',
+                }}>
+                  {label}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -184,15 +181,11 @@ export function GapsTable({ rows, month }: Props) {
                     {(row.proficiency * 5).toFixed(1)}<span style={{ fontSize: 11, fontWeight: 400, color: 'var(--text-muted)' }}>/5</span>
                   </td>
 
-                  {/* Biggest gap — full text */}
-                  <td style={{ ...tdBase, color: row.biggestGap ? 'var(--text)' : 'var(--text-muted)', lineHeight: 1.5 }}>
-                    {row.biggestGap || '—'}
-                  </td>
-
-                  {/* Planned actions — full text */}
-                  <td style={{ ...tdBase, color: row.plannedActions ? 'var(--text)' : 'var(--text-muted)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
-                    {row.plannedActions || '—'}
-                  </td>
+                  {([row.biggestGap, row.plannedActions, row.hackathonTakeaway, row.hackathonPlan] as const).map((val, i) => (
+                    <td key={i} style={{ ...tdBase, color: val ? 'var(--text)' : 'var(--text-muted)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
+                      {val || '—'}
+                    </td>
+                  ))}
                 </tr>
               );
             })}

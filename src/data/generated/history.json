@@ -304,7 +304,9 @@
       "proficiency": 0.6,
       "tier": "adopter",
       "biggestGap": "Could be good to find a way of how other colleagues are using the fields that I am missing.",
-      "plannedActions": "Start with Leve 5 or above."
+      "plannedActions": "Start with Leve 5 or above.",
+      "hackathonTakeaway": "I didn't participate in the past one.",
+      "hackathonPlan": "NA."
     },
     {
       "id": "f3aafeb7-154a-5096-b39b-c84a982c55a6",
@@ -322,7 +324,9 @@
       "proficiency": 0.8,
       "tier": "champion",
       "biggestGap": "Deepening my knowledge in addi environment tools and tech to build more scalable solutions",
-      "plannedActions": "Read documentation on product migration strategy and follow."
+      "plannedActions": "Read documentation on product migration strategy and follow.",
+      "hackathonTakeaway": "Clear communication and early delegation of tasks prevent bottlenecks during the final hours of the event.",
+      "hackathonPlan": "I will make sure we do quick 5-minute syncs every few hours to ensure everyone is aligned and no one is blocked."
     },
     {
       "id": "1ca18c50-f931-5edb-8cff-38b03534d10f",
@@ -340,7 +344,9 @@
       "proficiency": 0.7714,
       "tier": "champion",
       "biggestGap": "Autonomous agents and parallel works correctly.",
-      "plannedActions": "Research about how to execute autonomous agent and parallel work effectivatly without fail dure mulitple switch context."
+      "plannedActions": "Research about how to execute autonomous agent and parallel work effectivatly without fail dure mulitple switch context.",
+      "hackathonTakeaway": "I only participate in the first day of previous hackathon, those are my takeaways.\n\n1. I love how every our team could split the work and execute a project with huge parallelization and we handle inter dependencies.\n2. I learn how other was writing test such as mutable testing getting advantage of AI Agents.\n3. We could create lot of code, However we could merge it successfully due integrate everything in huge pull request is not so easy to review.",
+      "hackathonPlan": "1. Avoid huge pull requests.\n2. Continue with good coordination and split work to parallel different projects.\n3. Continue creating mini groups"
     },
     {
       "id": "7270528a-7e4a-50cf-8547-8dd6b41b59d7",
@@ -358,7 +364,9 @@
       "proficiency": 0.7143,
       "tier": "champion",
       "biggestGap": null,
-      "plannedActions": null
+      "plannedActions": null,
+      "hackathonTakeaway": "working with droid",
+      "hackathonPlan": "nothing"
     },
     {
       "id": "07062de5-b238-5360-b9f4-8336c19579dc",
@@ -376,7 +384,9 @@
       "proficiency": 0.5714,
       "tier": "adopter",
       "biggestGap": null,
-      "plannedActions": "Focus on L5 — Multi-agentic CLIs"
+      "plannedActions": "Focus on L5 — Multi-agentic CLIs",
+      "hackathonTakeaway": "We need to increase the harness of the FE",
+      "hackathonPlan": "We are going to improve the FE arch to enforce a better harness"
     },
     {
       "id": "3f4e39d1-e8d3-5489-9c8d-07ebaec1a8c6",
@@ -394,7 +404,9 @@
       "proficiency": 0.8,
       "tier": "champion",
       "biggestGap": "I rated long-running agents as 3 because, if we consider a long-running process as something that takes 4+ hours, I haven’t really had a use case where I could apply this type of skill effectively.\n\nThat said, the pattern of unattended tasks with explicit success/failure criteria and self-verification is something I consistently use in short- and mid-running processes.",
-      "plannedActions": "Over the next month, I want to run one small experiment applying this pattern to a real task: define the agent roles, handoffs, shared artifacts, and success/failure checks. I don’t need a perfect orchestration system yet, but I want to start practicing the pattern more intentionally."
+      "plannedActions": "Over the next month, I want to run one small experiment applying this pattern to a real task: define the agent roles, handoffs, shared artifacts, and success/failure checks. I don’t need a perfect orchestration system yet, but I want to start practicing the pattern more intentionally.",
+      "hackathonTakeaway": "I wasn’t able to fully join the last Hackathon, but I did participate in part of the first session. My main takeaway was that when you provide enough engineering context about the system or domain, it makes the implementation flow much more naturally when using Harness",
+      "hackathonPlan": "Recap where we left off in the last Hackathon and bring insights on how new system migrations should be led, so the whole team can work on the implementation with less friction"
     },
     {
       "id": "369df8f7-f502-562d-9a5b-3480f611ef1d",
@@ -412,7 +424,9 @@
       "proficiency": 0.7714,
       "tier": "champion",
       "biggestGap": "Continue exploring and practicing how to use my AI with more tasks, since I haven't had many challenging ones",
-      "plannedActions": "Combine business knowledge with an understanding of how to best use AI to build better solutions faster"
+      "plannedActions": "Combine business knowledge with an understanding of how to best use AI to build better solutions faster",
+      "hackathonTakeaway": "I improved my AI skills through more advanced changes like those in the Hackathon, since they involve more complex developments that require a deeper dive into the code; during my time at Addi, I haven't had the opportunity to work on more challenging projects like this one. But we must continue to create more value with this and keep improving, so that AI works better and better and we achieve better results",
+      "hackathonPlan": "Apply what I've learned about the best way to use AI, use it for long-running tasks, ensure context is well preserved, execute multiple tasks in parallel, and include many explicit constraints; leverage the business knowledge I've acquired"
     },
     {
       "id": "2858ceda-5bdf-5a35-b2ca-998db255bb72",
@@ -430,7 +444,9 @@
       "proficiency": 0.8571,
       "tier": "champion",
       "biggestGap": "Opportunities to have long running tasks, outside of the hackathon, regarding more complex designs and initiatives.",
-      "plannedActions": "Ideally tackle a bunch of initiatives and harden the harness around these systems, for both the enduring developmeng of them and future merchant initiatives (i.e., pathing the way)."
+      "plannedActions": "Ideally tackle a bunch of initiatives and harden the harness around these systems, for both the enduring developmeng of them and future merchant initiatives (i.e., pathing the way).",
+      "hackathonTakeaway": "There needs to be more supervision in the exploratory phase. With the auth layer, roughly 90% of components were already available to consume, but the contract forced agents to reinvent them anyway. Even with a tight overall scope, implementation still took a long time, so validation depth also needs to be more tightly scoped per component going forward. On model choices, I plan to change our approach for worker agents, since many \"smart workers\" were stalling the process significantly; I want to test a new configuration, particularly around GLM-5.2 and MiniMax-M3 as worker models. Opus is too slow for orchestration in Droid, but performs well on smaller, scoped tasks in Claude Code (CC).",
+      "hackathonPlan": "For this Hackathon, my focus is on: the model configuration changes for worker agents. I want to test GLM-5.2 and MiniMax-M3 as worker models. It's the most concrete, testable piece of work for a two day window. I'll also try applying tighter validation scoping, as I build, to see if it actually cuts implementation time. And finally, the supervision gap in the exploratory phase, is more of a process fix than something to build, so I'll treat it as a learning to carry forward rather than something to implement this round."
     },
     {
       "id": "d4b8b8e0-bf72-53d5-9e46-15d3b3718ede",
@@ -448,7 +464,9 @@
       "proficiency": 0.6,
       "tier": "adopter",
       "biggestGap": "Upgrade to the L4, and start working and spreading with the team my knowledge and discoveries on the previous phases to help the team growth too.\n\nStart contributing more on the compound process and to transform those continuos agent mistakes into fixes that saves me and the time a lot of time.",
-      "plannedActions": "Investigate and learn more (taking advantage of the more seasoned folks of the team) about how they use the compound engineering and the multi-agentic and long plan agents, to improve my workflows."
+      "plannedActions": "Investigate and learn more (taking advantage of the more seasoned folks of the team) about how they use the compound engineering and the multi-agentic and long plan agents, to improve my workflows.",
+      "hackathonTakeaway": "I learned a lot about the context of the ally-core foundations and how it's the dynamics of the team, creating my first PR, reviewing some PR's from more seasoned folks, and getting use to the workflows of AI inside ADDI. Also tested a lot the Droids feature from Factory, so sad it's gone :(.",
+      "hackathonPlan": "I plan to implement the usage of AI that I discovered during last hackathon, and keep improving over it!"
     },
     {
       "id": "080244de-8d53-5e41-8b4d-7685d0847cc6",
@@ -466,7 +484,9 @@
       "proficiency": 0.7714,
       "tier": "champion",
       "biggestGap": null,
-      "plannedActions": null
+      "plannedActions": null,
+      "hackathonTakeaway": "invest into task planification to avoid: conflicts within the team and have idle coworkers, use missions with care, using an agnostic structured agentic workflow based on agents/skills.",
+      "hackathonPlan": "reuse structured agentic workflow based on agents and skills"
     },
     {
       "id": "913836ea-7edc-588b-aafc-fb8fb4ce78de",
@@ -484,7 +504,9 @@
       "proficiency": 0.8286,
       "tier": "champion",
       "biggestGap": "Better Spec definition to reduce more the loops.",
-      "plannedActions": "1. Implement \"Reverse Prompting\" by asking the AI to generate key questions before starting a project to ensure no information gaps are left unaddressed.\n2. Define strict \"Acceptance Criteria\" in every prompt, explicitly detailing constraints, the exact output format, and what the AI should avoid doing."
+      "plannedActions": "1. Implement \"Reverse Prompting\" by asking the AI to generate key questions before starting a project to ensure no information gaps are left unaddressed.\n2. Define strict \"Acceptance Criteria\" in every prompt, explicitly detailing constraints, the exact output format, and what the AI should avoid doing.",
+      "hackathonTakeaway": "Improved my practical execution in programming multi-agent workflows, specifically in structuring execution plans, defining precise agent roles, and setting up efficient task handoffs.",
+      "hackathonPlan": "Plan to program and orchestrate a multi-agent setup during this hackathon, ensuring each agent has a strict contract and parallelizing tasks to boost development throughput."
     },
     {
       "id": "f9672697-2a60-5061-aad8-b1fc63a71084",
@@ -502,7 +524,9 @@
       "proficiency": 0.7143,
       "tier": "champion",
       "biggestGap": "Although I have observed some common stuff / behaviors while working on our codebase, I have not started contributing to harness yet.\n\nAlthough I have used background executions, the tests I have done have been considerably more expensive, so I need to test other options.",
-      "plannedActions": "Start contributing to improve our harness so following agent outputs improve too.\n\nI would like to go deeper into the background executions to achieve balanced cost-benefit results."
+      "plannedActions": "Start contributing to improve our harness so following agent outputs improve too.\n\nI would like to go deeper into the background executions to achieve balanced cost-benefit results.",
+      "hackathonTakeaway": "Harness is as important to agent development as code coverage is to tests. This becomes even more important when multiple teammates are touching the same codebase, as even if agents generate good code, when they need to make a choice (e.g. filename convention) we can end up with conflicts or duplicated files.\n\nReviews from multiple teammates is very important to decrease risk of unexpected code reaching migration branch.",
+      "hackathonPlan": "Improve communication with teammates and review anything to also enrich my context."
     },
     {
       "id": "75724c23-a01e-5d89-9e20-e66458af64a7",
@@ -520,7 +544,9 @@
       "proficiency": 0.8857,
       "tier": "champion",
       "biggestGap": "Improve the current flow being used to L7 step",
-      "plannedActions": "Continue to work to improve the loops, with specific goals"
+      "plannedActions": "Continue to work to improve the loops, with specific goals",
+      "hackathonTakeaway": "The knowledge and experience on correcting the agents in an autonomous workflow (L7), was a bigger issue than expected, and possible due to the forced migration to Factory AI as well, so I need to be more agnostic to work with this level with different tools",
+      "hackathonPlan": "Improve the issue that I faced on L7 level, regarding be tool-agnostic on the workflows implementations"
     }
   ]
 }

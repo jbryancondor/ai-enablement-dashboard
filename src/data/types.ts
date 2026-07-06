@@ -25,6 +25,8 @@ export interface Submission {
   tier: TierId;
   biggestGap?: string;
   plannedActions?: string;
+  hackathonTakeaway?: string;
+  hackathonPlan?: string;
 }
 
 export interface History {

@@ -239,6 +239,8 @@ export interface TableRow {
   L5: number; L6: number; L7: number;
   biggestGap: string;
   plannedActions: string;
+  hackathonTakeaway: string;
+  hackathonPlan: string;
   submittedAt: string;
 }
 
@@ -261,6 +263,8 @@ export function selectTableRows(
         L7: sub.levels.L7,
         biggestGap: sub.biggestGap ?? '',
         plannedActions: sub.plannedActions ?? '',
+        hackathonTakeaway: sub.hackathonTakeaway ?? '',
+        hackathonPlan: sub.hackathonPlan ?? '',
         submittedAt: sub.submittedAt,
       };
     })
@@ -386,7 +390,7 @@ export function rowsToCSV(rows: TableRow[]): string {
   const headers = [
     'Name', 'Email', 'Tier', 'Proficiency',
     'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7',
-    'Biggest Gap', 'Planned Actions', 'Submitted At',
+    'Biggest Gap', 'Planned Actions', 'Hackathon Takeaway', 'Hackathon Plan', 'Submitted At',
   ];
   const escape = (v: unknown) => {
     const s = String(v ?? '').replace(/"/g, '""');
@@ -397,7 +401,7 @@ export function rowsToCSV(rows: TableRow[]): string {
     ...rows.map(r =>
       [r.name, r.email, r.tier, r.proficiency,
        r.L1, r.L2, r.L3, r.L4, r.L5, r.L6, r.L7,
-       r.biggestGap, r.plannedActions, r.submittedAt]
+       r.biggestGap, r.plannedActions, r.hackathonTakeaway, r.hackathonPlan, r.submittedAt]
         .map(escape).join(','),
     ),
   ];

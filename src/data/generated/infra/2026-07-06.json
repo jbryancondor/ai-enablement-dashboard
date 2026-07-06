@@ -3,38 +3,38 @@
   "squadId": "merchant-engineering",
   "repos": [
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/channels",
+      "path": "/Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels",
       "name": "channels",
       "agentsMdCount": 2,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant",
+      "path": "/Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant",
       "name": "merchant",
-      "agentsMdCount": 12,
+      "agentsMdCount": 16,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm-legacy/ally-management",
+      "path": "/Users/bcondor/addi/project/platform/backend-jvm-legacy/ally-management",
       "name": "ally-management",
       "agentsMdCount": 0,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm-legacy/channels",
+      "path": "/Users/bcondor/addi/project/platform/backend-jvm-legacy/channels",
       "name": "channels",
       "agentsMdCount": 0,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management",
+      "path": "/Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management",
       "name": "ally-management",
       "agentsMdCount": 1,
-      "skillCount": 24,
+      "skillCount": 12,
       "skills": [
         {
           "name": "adding-addi-auth",
@@ -83,66 +83,18 @@
         {
           "name": "managing-system-yaml-config",
           "description": "Creates and updates backend-jvm system YAML configuration under…"
-        },
-        {
-          "name": "adding-addi-auth",
-          "description": "Adds permission-scope authorization in backend-jvm (Vert.x runtime) by…"
-        },
-        {
-          "name": "adding-m2m-auth",
-          "description": "Adds Machine-to-Machine (M2M) OAuth 2.0 authentication in backend-jvm (Vert.x…"
-        },
-        {
-          "name": "creating-component-tests",
-          "description": "> Writes Component Tests (CP tests) for ally-core HTTP API endpoints. Tests…"
-        },
-        {
-          "name": "creating-database-dao",
-          "description": "Creates Hibernate-based DAO, HibernateRecord, and Default Repository classes…"
-        },
-        {
-          "name": "creating-endpoints",
-          "description": "Implements HTTP API endpoints in backend-jvm systems following Addi's hexagonal…"
-        },
-        {
-          "name": "creating-feature-toggles",
-          "description": "> Implements a new feature toggle in an ally-core service — registers the name…"
-        },
-        {
-          "name": "creating-http-client-api-library",
-          "description": "Creates an HTTP client API library for a backend-jvm system following Addi's…"
-        },
-        {
-          "name": "creating-systems",
-          "description": "Creates or migrates backend-jvm systems and system-owned libraries using the…"
-        },
-        {
-          "name": "creating-unit-tests",
-          "description": "Entry point for writing or updating unit tests in ally-core. Covers…"
-        },
-        {
-          "name": "executing-gradle",
-          "description": "Runs and troubleshoots backend-jvm Gradle commands with the correct Java…"
-        },
-        {
-          "name": "managing-system-gradle-config",
-          "description": "Updates backend-jvm Gradle settings and build.gradle.kts files for systems,…"
-        },
-        {
-          "name": "managing-system-yaml-config",
-          "description": "Creates and updates backend-jvm system YAML configuration under…"
         }
       ]
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/channels",
+      "path": "/Users/bcondor/addi/project/platform/backend-jvm/domains/channels",
       "name": "channels",
       "agentsMdCount": 1,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ui/apps/ally-portal",
+      "path": "/Users/bcondor/addi/project/platform/ui/apps/ally-portal",
       "name": "ally-portal",
       "agentsMdCount": 1,
       "skillCount": 11,
