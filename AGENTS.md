@@ -108,6 +108,58 @@ Individual tiers, Harness tiers, and the heatmap sequential scale must all use c
 
 ---
 
+## Generating a New Snapshot
+
+> **AI agent instruction**: Before running any ingest command, always ask the user for the following mandatory inputs. Do not proceed until all are confirmed.
+
+### Mandatory inputs — ask the user before starting
+
+| Input | What to ask | Notes |
+|---|---|---|
+| **Survey CSV path** | "Where is the Google Form CSV file?" | Skip if only refreshing harness (`--refresh-infra-only`) |
+| **Capture date** | "What date should this snapshot be tagged as? (YYYY-MM-DD)" | Defaults to max timestamp in CSV if omitted |
+| **Platform repo path** | "Are the platform repos available at `/Users/bcondor/addi/project/platform`? If not, what path should I use?" | Used to substitute into `config/squad.yaml`. The listed services must exist under that base. |
+
+### Prerequisites (verify before running)
+- `context-engineering-map` exists at `/Users/bcondor/bcd/dotfiles/scripts/context-engineering-map`
+- The platform repo path is accessible on the current machine
+- `config/squad.yaml` lists service-level paths (not domain-level — see `config/squad.yaml` for the current list)
+
+### Commands
+
+Full snapshot (new survey wave + harness scan):
+```bash
+python3 scripts/ingest.py "path/to/responses.csv" --captured-at YYYY-MM-DD
+git add src/data/generated/
+git commit -m "data: ingest wave YYYY-MM-DD"
+git push
+```
+
+Harness-only refresh (no new CSV):
+```bash
+python3 scripts/ingest.py --refresh-infra-only --captured-at YYYY-MM-DD
+git add src/data/generated/
+git commit -m "data: refresh harness snapshot YYYY-MM-DD"
+git push
+```
+
+Re-ingest with new fields (when the CSV schema added columns):
+```bash
+python3 scripts/ingest.py "path/to/responses.csv" --captured-at YYYY-MM-DD --reingest-conflicts
+```
+
+### If the platform repos are on a different path
+Temporarily substitute the base path before running, then restore `config/squad.yaml` afterwards:
+```bash
+# replace base path in squad.yaml, run ingest, then restore
+sed 's|/Users/bcondor/addi/project/platform/|/your/path/|g' config/squad.yaml > /tmp/squad_tmp.yaml
+cp /tmp/squad_tmp.yaml config/squad.yaml
+python3 scripts/ingest.py --refresh-infra-only --captured-at YYYY-MM-DD
+cp /tmp/squad_original.yaml config/squad.yaml  # restore
+```
+
+---
+
 ## Ingest Pipeline (`scripts/ingest.py`)
 
 - **Idempotent**: deduplicates by `(email, submittedAt)` — safe to run multiple times
@@ -115,14 +167,6 @@ Individual tiers, Harness tiers, and the heatmap sequential scale must all use c
 - **Repo scanning**: runs `context-engineering-map` on each path in `config/squad.yaml`
 - **Output**: `history.json` (submissions), `latest-infra.json` (repo scan), `manifest.json` (audit trail)
 - **PII protection**: CSV input files must never be committed; `docs/input/` is gitignored
-
-To update with a new survey wave:
-```bash
-python3 scripts/ingest.py "path/to/responses.csv" --captured-at YYYY-MM-DD
-git add src/data/generated/
-git commit -m "data: ingest wave YYYY-MM"
-git push
-```
 
 ---
 
