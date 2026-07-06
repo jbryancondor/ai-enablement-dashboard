@@ -31,13 +31,6 @@
       "skills": []
     },
     {
-      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/merchant-configuration",
-      "name": "merchant-configuration",
-      "agentsMdCount": 1,
-      "skillCount": 0,
-      "skills": []
-    },
-    {
       "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/merchant-core",
       "name": "merchant-core",
       "agentsMdCount": 1,
@@ -286,5 +279,5 @@
       ]
     }
   ],
-  "coverage": 0.45
+  "coverage": 0.4211
 }
