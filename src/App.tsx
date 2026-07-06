@@ -7,16 +7,38 @@ import { IndividualDashboard } from './routes/IndividualDashboard';
 import './components/tokens.css';
 import './App.css';
 
-// Generated at ingest time — always present after running: npm run ingest
 import historyJson from './data/generated/history.json';
-import latestInfraJson from './data/generated/latest-infra.json';
 
 const history = historyJson as History;
-const latestInfra = latestInfraJson.repos?.length ? (latestInfraJson as InfraSnapshot) : null;
+
+// Load all dated infra snapshots at build time
+const infraModules = import.meta.glob<{ default: InfraSnapshot }>(
+  './data/generated/infra/*.json',
+  { eager: true },
+);
+
+// Build a sorted list of { date: YYYY-MM-DD, snapshot } from the file names
+const infraSnapshots: { date: string; snapshot: InfraSnapshot }[] = Object.entries(infraModules)
+  .map(([path, mod]) => {
+    const date = path.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? '';
+    return { date, snapshot: mod.default };
+  })
+  .filter(e => e.date && e.snapshot?.repos?.length)
+  .sort((a, b) => a.date.localeCompare(b.date));
+
+/** Return the latest snapshot whose capturedAt is ≤ the last day of `month` (YYYY-MM). */
+function infraForMonth(month: string | null): InfraSnapshot | null {
+  if (!infraSnapshots.length) return null;
+  if (!month) return infraSnapshots[infraSnapshots.length - 1].snapshot;
+  const cutoff = `${month}-31`; // YYYY-MM-31 is always ≥ any day in the month
+  const match = [...infraSnapshots].reverse().find(e => e.date <= cutoff);
+  return match?.snapshot ?? infraSnapshots[0].snapshot;
+}
 
 function AppShell() {
   const [searchParams, setSearchParams] = useSearchParams();
   const month = searchParams.get('month');
+  const infra = infraForMonth(month);
 
   function handleMonthChange(m: string | null) {
     const next = new URLSearchParams(searchParams);
@@ -33,7 +55,7 @@ function AppShell() {
           <Route path="/" element={<Navigate to="/squads/merchant-engineering" replace />} />
           <Route
             path="/squads/:squadId"
-            element={<SquadDashboard history={history} infra={latestInfra} />}
+            element={<SquadDashboard history={history} infra={infra} />}
           />
           <Route
             path="/individuals"
