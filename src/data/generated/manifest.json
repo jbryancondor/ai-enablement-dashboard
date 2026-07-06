@@ -59,6 +59,16 @@
       "rowsSkipped": 12,
       "rowsConflicted": 0,
       "infraSnapshot": "src/data/generated/infra/2026-05-27.json"
+    },
+    {
+      "ingestedAt": "2026-07-06T16:45:39.073773Z",
+      "csvPath": "/Users/bcondor/Downloads/AI-Native Engineering #2_responses.csv",
+      "csvSha256": "ab5124674e2b7284739449b915683b71c3cd44c11ba8224a44d72d6343041e7b",
+      "capturedAt": "2026-07-06",
+      "rowsAdded": 13,
+      "rowsSkipped": 0,
+      "rowsConflicted": 0,
+      "infraSnapshot": "src/data/generated/infra/2026-07-06.json"
     }
   ]
 }

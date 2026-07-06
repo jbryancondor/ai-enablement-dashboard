@@ -6,6 +6,11 @@
       "email": "bcondor@addi.com"
     },
     {
+      "id": "96c077ac-323b-5e94-94bf-f361675a8501",
+      "name": "Carlos David Tello Ruiz",
+      "email": "ctello@addi.com"
+    },
+    {
       "id": "6895360e-bf31-5bc5-a221-d8751c31298b",
       "name": "Daniel del Castillo Andrade",
       "email": "ddelcastillo@addi.com"
@@ -32,7 +37,7 @@
     },
     {
       "id": "74ed59db-6223-561f-bad3-51e9a55676d1",
-      "name": "",
+      "name": "Javier Fernandez",
       "email": "jfernandez@addi.com"
     },
     {
@@ -54,6 +59,11 @@
       "id": "606521c9-8f50-5e1c-ac79-8b0ce25dbf62",
       "name": "Sergio Rivas",
       "email": "srivas@addi.com"
+    },
+    {
+      "id": "9054cf12-56fa-5674-9aa2-da638ec6aeac",
+      "name": "Francisco Rodriguez",
+      "email": "srodriguezcastellanos@addi.com"
     },
     {
       "id": "632337fd-f8d0-502a-9652-68cc538ae52d",
@@ -277,6 +287,240 @@
       "tier": "adopter",
       "biggestGap": "Send task to background process and autonomous execution. I've tried in the past that it takes long time as sometimes it could not finished successfully and require manual intervention.",
       "plannedActions": "Orchestration and Tasks in Background."
+    },
+    {
+      "id": "31d1c685-1159-5b70-afc4-8e696d471774",
+      "engineerId": "606521c9-8f50-5e1c-ac79-8b0ce25dbf62",
+      "submittedAt": "2026-07-02T10:39:19",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 3,
+        "L5": 2,
+        "L6": 1,
+        "L7": 1
+      },
+      "proficiency": 0.6,
+      "tier": "adopter",
+      "biggestGap": "Could be good to find a way of how other colleagues are using the fields that I am missing.",
+      "plannedActions": "Start with Leve 5 or above."
+    },
+    {
+      "id": "f3aafeb7-154a-5096-b39b-c84a982c55a6",
+      "engineerId": "96c077ac-323b-5e94-94bf-f361675a8501",
+      "submittedAt": "2026-07-02T10:58:48",
+      "levels": {
+        "L1": 4,
+        "L2": 4,
+        "L3": 4,
+        "L4": 4,
+        "L5": 4,
+        "L6": 4,
+        "L7": 4
+      },
+      "proficiency": 0.8,
+      "tier": "champion",
+      "biggestGap": "Deepening my knowledge in addi environment tools and tech to build more scalable solutions",
+      "plannedActions": "Read documentation on product migration strategy and follow."
+    },
+    {
+      "id": "1ca18c50-f931-5edb-8cff-38b03534d10f",
+      "engineerId": "8417abf4-e988-5b99-a56f-66c972e96c93",
+      "submittedAt": "2026-07-02T11:00:55",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 4,
+        "L5": 4,
+        "L6": 2,
+        "L7": 2
+      },
+      "proficiency": 0.7714,
+      "tier": "champion",
+      "biggestGap": "Autonomous agents and parallel works correctly.",
+      "plannedActions": "Research about how to execute autonomous agent and parallel work effectivatly without fail dure mulitple switch context."
+    },
+    {
+      "id": "7270528a-7e4a-50cf-8547-8dd6b41b59d7",
+      "engineerId": "e09c62b0-04d2-51d9-8e1c-08f7bcc0f29c",
+      "submittedAt": "2026-07-02T11:01:50",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 4,
+        "L5": 3,
+        "L6": 3,
+        "L7": 1
+      },
+      "proficiency": 0.7143,
+      "tier": "champion",
+      "biggestGap": null,
+      "plannedActions": null
+    },
+    {
+      "id": "07062de5-b238-5360-b9f4-8336c19579dc",
+      "engineerId": "632337fd-f8d0-502a-9652-68cc538ae52d",
+      "submittedAt": "2026-07-02T11:01:54",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 3,
+        "L5": 2,
+        "L6": 1,
+        "L7": 0
+      },
+      "proficiency": 0.5714,
+      "tier": "adopter",
+      "biggestGap": null,
+      "plannedActions": "Focus on L5 — Multi-agentic CLIs"
+    },
+    {
+      "id": "3f4e39d1-e8d3-5489-9c8d-07ebaec1a8c6",
+      "engineerId": "cb42c19e-3c4a-56b4-b910-2defc74dfb22",
+      "submittedAt": "2026-07-02T11:02:59",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 4,
+        "L5": 5,
+        "L6": 3,
+        "L7": 1
+      },
+      "proficiency": 0.8,
+      "tier": "champion",
+      "biggestGap": "I rated long-running agents as 3 because, if we consider a long-running process as something that takes 4+ hours, I haven’t really had a use case where I could apply this type of skill effectively.\n\nThat said, the pattern of unattended tasks with explicit success/failure criteria and self-verification is something I consistently use in short- and mid-running processes.",
+      "plannedActions": "Over the next month, I want to run one small experiment applying this pattern to a real task: define the agent roles, handoffs, shared artifacts, and success/failure checks. I don’t need a perfect orchestration system yet, but I want to start practicing the pattern more intentionally."
+    },
+    {
+      "id": "369df8f7-f502-562d-9a5b-3480f611ef1d",
+      "engineerId": "ac4e0e25-0360-5ecd-ac0a-36bfdd446c52",
+      "submittedAt": "2026-07-02T11:05:05",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 4,
+        "L5": 3,
+        "L6": 3,
+        "L7": 2
+      },
+      "proficiency": 0.7714,
+      "tier": "champion",
+      "biggestGap": "Continue exploring and practicing how to use my AI with more tasks, since I haven't had many challenging ones",
+      "plannedActions": "Combine business knowledge with an understanding of how to best use AI to build better solutions faster"
+    },
+    {
+      "id": "2858ceda-5bdf-5a35-b2ca-998db255bb72",
+      "engineerId": "6895360e-bf31-5bc5-a221-d8751c31298b",
+      "submittedAt": "2026-07-02T11:05:10",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 5,
+        "L5": 4,
+        "L6": 3,
+        "L7": 3
+      },
+      "proficiency": 0.8571,
+      "tier": "champion",
+      "biggestGap": "Opportunities to have long running tasks, outside of the hackathon, regarding more complex designs and initiatives.",
+      "plannedActions": "Ideally tackle a bunch of initiatives and harden the harness around these systems, for both the enduring developmeng of them and future merchant initiatives (i.e., pathing the way)."
+    },
+    {
+      "id": "d4b8b8e0-bf72-53d5-9e46-15d3b3718ede",
+      "engineerId": "dda06b23-12c3-5e09-9cc8-a3f8901750a3",
+      "submittedAt": "2026-07-02T11:05:18",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 2,
+        "L5": 3,
+        "L6": 1,
+        "L7": 1
+      },
+      "proficiency": 0.6,
+      "tier": "adopter",
+      "biggestGap": "Upgrade to the L4, and start working and spreading with the team my knowledge and discoveries on the previous phases to help the team growth too.\n\nStart contributing more on the compound process and to transform those continuos agent mistakes into fixes that saves me and the time a lot of time.",
+      "plannedActions": "Investigate and learn more (taking advantage of the more seasoned folks of the team) about how they use the compound engineering and the multi-agentic and long plan agents, to improve my workflows."
+    },
+    {
+      "id": "080244de-8d53-5e41-8b4d-7685d0847cc6",
+      "engineerId": "74ed59db-6223-561f-bad3-51e9a55676d1",
+      "submittedAt": "2026-07-02T11:05:20",
+      "levels": {
+        "L1": 4,
+        "L2": 4,
+        "L3": 4,
+        "L4": 4,
+        "L5": 4,
+        "L6": 4,
+        "L7": 3
+      },
+      "proficiency": 0.7714,
+      "tier": "champion",
+      "biggestGap": null,
+      "plannedActions": null
+    },
+    {
+      "id": "913836ea-7edc-588b-aafc-fb8fb4ce78de",
+      "engineerId": "646ef819-3061-5588-8c91-dc9ae1733e04",
+      "submittedAt": "2026-07-02T11:05:34",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 4,
+        "L4": 4,
+        "L5": 4,
+        "L6": 4,
+        "L7": 3
+      },
+      "proficiency": 0.8286,
+      "tier": "champion",
+      "biggestGap": "Better Spec definition to reduce more the loops.",
+      "plannedActions": "1. Implement \"Reverse Prompting\" by asking the AI to generate key questions before starting a project to ensure no information gaps are left unaddressed.\n2. Define strict \"Acceptance Criteria\" in every prompt, explicitly detailing constraints, the exact output format, and what the AI should avoid doing."
+    },
+    {
+      "id": "f9672697-2a60-5061-aad8-b1fc63a71084",
+      "engineerId": "9054cf12-56fa-5674-9aa2-da638ec6aeac",
+      "submittedAt": "2026-07-02T11:06:07",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 3,
+        "L5": 4,
+        "L6": 2,
+        "L7": 1
+      },
+      "proficiency": 0.7143,
+      "tier": "champion",
+      "biggestGap": "Although I have observed some common stuff / behaviors while working on our codebase, I have not started contributing to harness yet.\n\nAlthough I have used background executions, the tests I have done have been considerably more expensive, so I need to test other options.",
+      "plannedActions": "Start contributing to improve our harness so following agent outputs improve too.\n\nI would like to go deeper into the background executions to achieve balanced cost-benefit results."
+    },
+    {
+      "id": "75724c23-a01e-5d89-9e20-e66458af64a7",
+      "engineerId": "dcaf274c-c77d-5b86-8751-6aec3548ae22",
+      "submittedAt": "2026-07-03T09:23:22",
+      "levels": {
+        "L1": 5,
+        "L2": 5,
+        "L3": 5,
+        "L4": 5,
+        "L5": 5,
+        "L6": 4,
+        "L7": 2
+      },
+      "proficiency": 0.8857,
+      "tier": "champion",
+      "biggestGap": "Improve the current flow being used to L7 step",
+      "plannedActions": "Continue to work to improve the loops, with specific goals"
     }
   ]
 }
