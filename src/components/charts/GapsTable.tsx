@@ -54,6 +54,7 @@ export function GapsTable({ rows, month }: Props) {
 
   if (rows.length === 0) return <EmptyState />;
 
+  const showHackathon = rows.some(r => r.hackathonTakeaway || r.hackathonPlan);
   const TIER_RANK: Record<string, number> = { explorer: 0, adopter: 1, champion: 2 };
 
   function handleSort(key: SortKey) {
@@ -119,17 +120,26 @@ export function GapsTable({ rows, month }: Props) {
             <col style={{ width: 150 }} />
             <col style={{ width: 100 }} />
             <col style={{ width: 72 }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
+            <col style={{ width: showHackathon ? '25%' : '50%' }} />
+            <col style={{ width: showHackathon ? '25%' : '50%' }} />
+            {showHackathon && <col style={{ width: '25%' }} />}
+            {showHackathon && <col style={{ width: '25%' }} />}
           </colgroup>
           <thead>
             <tr>
               <SortTh col="name"        label="Engineer"  sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
               <SortTh col="tier"        label="Tier"      sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
               <SortTh col="proficiency" label="Score"     sortKey={sortKey} sortAsc={sortAsc} onSort={handleSort} />
-              {(['Biggest Gap', 'Planned Actions', 'Hackathon Takeaway', 'Hackathon Plan'] as const).map(label => (
+              {(['Biggest Gap', 'Planned Actions'] as const).map(label => (
+                <th key={label} style={{
+                  padding: '10px 14px', textAlign: 'left', fontSize: 12, fontWeight: 600,
+                  color: 'var(--text-muted)', background: 'var(--surface-muted)',
+                  borderBottom: '2px solid var(--border)',
+                }}>
+                  {label}
+                </th>
+              ))}
+              {showHackathon && (['Hackathon Takeaway', 'Hackathon Plan'] as const).map(label => (
                 <th key={label} style={{
                   padding: '10px 14px', textAlign: 'left', fontSize: 12, fontWeight: 600,
                   color: 'var(--text-muted)', background: 'var(--surface-muted)',
@@ -181,7 +191,12 @@ export function GapsTable({ rows, month }: Props) {
                     {(row.proficiency * 5).toFixed(1)}<span style={{ fontSize: 11, fontWeight: 400, color: 'var(--text-muted)' }}>/5</span>
                   </td>
 
-                  {([row.biggestGap, row.plannedActions, row.hackathonTakeaway, row.hackathonPlan] as const).map((val, i) => (
+                  {([row.biggestGap, row.plannedActions] as const).map((val, i) => (
+                    <td key={i} style={{ ...tdBase, color: val ? 'var(--text)' : 'var(--text-muted)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
+                      {val || '—'}
+                    </td>
+                  ))}
+                  {showHackathon && ([row.hackathonTakeaway, row.hackathonPlan] as const).map((val, i) => (
                     <td key={i} style={{ ...tdBase, color: val ? 'var(--text)' : 'var(--text-muted)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                       {val || '—'}
                     </td>
