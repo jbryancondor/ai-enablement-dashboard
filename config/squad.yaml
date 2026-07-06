@@ -3,12 +3,37 @@ squad:
   name: Merchant Engineering
 
 # Absolute paths to repos that belong to this squad.
+# Scanned at the individual service/system level for granular visibility.
 # The ingest script runs context-engineering-map against each one.
 repos:
+  # ai-native-backend-jvm — merchant domain
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/bills
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/cancellations
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/merchant-configuration
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/merchant-core
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant/payments
+
+  # ai-native-backend-jvm — channels domain
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels/channels-orders
+  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels/virtual-cards
+
+  # backend-jvm — ally-management systems
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/ally-configuration
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/ally-core
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/ally-onboarding
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/ally-payments
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/ally-portal
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/attribution-sale
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management/systems/cancellations
+
+  # backend-jvm — channels systems
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/channels/systems/channels
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/channels/systems/in-store
+  - /Users/bcondor/addi/project/platform/backend-jvm/domains/channels/systems/virtual-cards
+
+  # backend-jvm-legacy
   - /Users/bcondor/addi/project/platform/backend-jvm-legacy/ally-management
   - /Users/bcondor/addi/project/platform/backend-jvm-legacy/channels
-  - /Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management
-  - /Users/bcondor/addi/project/platform/backend-jvm/domains/channels
-  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant
-  - /Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels
+
+  # ui
   - /Users/bcondor/addi/project/platform/ui/apps/ally-portal

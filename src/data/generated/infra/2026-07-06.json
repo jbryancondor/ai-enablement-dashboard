@@ -3,37 +3,72 @@
   "squadId": "merchant-engineering",
   "repos": [
     {
-      "path": "/Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/channels",
-      "name": "channels",
-      "agentsMdCount": 2,
-      "skillCount": 0,
-      "skills": []
-    },
-    {
-      "path": "/Users/bcondor/addi/project/platform/ai-native-backend-jvm/domains/merchant",
-      "name": "merchant",
-      "agentsMdCount": 16,
-      "skillCount": 0,
-      "skills": []
-    },
-    {
-      "path": "/Users/bcondor/addi/project/platform/backend-jvm-legacy/ally-management",
-      "name": "ally-management",
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/channels/channels-orders",
+      "name": "channels-orders",
       "agentsMdCount": 0,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/addi/project/platform/backend-jvm-legacy/channels",
-      "name": "channels",
-      "agentsMdCount": 0,
-      "skillCount": 0,
-      "skills": []
-    },
-    {
-      "path": "/Users/bcondor/addi/project/platform/backend-jvm/domains/ally-management",
-      "name": "ally-management",
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/channels/virtual-cards",
+      "name": "virtual-cards",
       "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/bills",
+      "name": "bills",
+      "agentsMdCount": 7,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/cancellations",
+      "name": "cancellations",
+      "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/merchant-configuration",
+      "name": "merchant-configuration",
+      "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/merchant-core",
+      "name": "merchant-core",
+      "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ai-native-backend-jvm/domains/merchant/payments",
+      "name": "payments",
+      "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm-legacy/ally-management",
+      "name": "ally-management",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm-legacy/channels",
+      "name": "channels",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/ally-configuration",
+      "name": "ally-configuration",
+      "agentsMdCount": 0,
       "skillCount": 12,
       "skills": [
         {
@@ -87,14 +122,119 @@
       ]
     },
     {
-      "path": "/Users/bcondor/addi/project/platform/backend-jvm/domains/channels",
-      "name": "channels",
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/ally-core",
+      "name": "ally-core",
+      "agentsMdCount": 0,
+      "skillCount": 12,
+      "skills": [
+        {
+          "name": "adding-addi-auth",
+          "description": "Adds permission-scope authorization in backend-jvm (Vert.x runtime) by…"
+        },
+        {
+          "name": "adding-m2m-auth",
+          "description": "Adds Machine-to-Machine (M2M) OAuth 2.0 authentication in backend-jvm (Vert.x…"
+        },
+        {
+          "name": "creating-component-tests",
+          "description": "> Writes Component Tests (CP tests) for ally-core HTTP API endpoints. Tests…"
+        },
+        {
+          "name": "creating-database-dao",
+          "description": "Creates Hibernate-based DAO, HibernateRecord, and Default Repository classes…"
+        },
+        {
+          "name": "creating-endpoints",
+          "description": "Implements HTTP API endpoints in backend-jvm systems following Addi's hexagonal…"
+        },
+        {
+          "name": "creating-feature-toggles",
+          "description": "> Implements a new feature toggle in an ally-core service — registers the name…"
+        },
+        {
+          "name": "creating-http-client-api-library",
+          "description": "Creates an HTTP client API library for a backend-jvm system following Addi's…"
+        },
+        {
+          "name": "creating-systems",
+          "description": "Creates or migrates backend-jvm systems and system-owned libraries using the…"
+        },
+        {
+          "name": "creating-unit-tests",
+          "description": "Entry point for writing or updating unit tests in ally-core. Covers…"
+        },
+        {
+          "name": "executing-gradle",
+          "description": "Runs and troubleshoots backend-jvm Gradle commands with the correct Java…"
+        },
+        {
+          "name": "managing-system-gradle-config",
+          "description": "Updates backend-jvm Gradle settings and build.gradle.kts files for systems,…"
+        },
+        {
+          "name": "managing-system-yaml-config",
+          "description": "Creates and updates backend-jvm system YAML configuration under…"
+        }
+      ]
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/ally-onboarding",
+      "name": "ally-onboarding",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/ally-payments",
+      "name": "ally-payments",
       "agentsMdCount": 1,
       "skillCount": 0,
       "skills": []
     },
     {
-      "path": "/Users/bcondor/addi/project/platform/ui/apps/ally-portal",
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/ally-portal",
+      "name": "ally-portal",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/attribution-sale",
+      "name": "attribution-sale",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/ally-management/systems/cancellations",
+      "name": "cancellations",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/channels/systems/channels",
+      "name": "channels",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/channels/systems/in-store",
+      "name": "in-store",
+      "agentsMdCount": 1,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/backend-jvm/domains/channels/systems/virtual-cards",
+      "name": "virtual-cards",
+      "agentsMdCount": 0,
+      "skillCount": 0,
+      "skills": []
+    },
+    {
+      "path": "/Users/bcondor/emdash/worktrees/platform/ally-core-system-ai-native-migration-base/ui/apps/ally-portal",
       "name": "ally-portal",
       "agentsMdCount": 1,
       "skillCount": 11,
@@ -146,5 +286,5 @@
       ]
     }
   ],
-  "coverage": 0.7143
+  "coverage": 0.45
 }

@@ -79,6 +79,16 @@
       "rowsSkipped": 0,
       "rowsConflicted": 13,
       "infraSnapshot": "src/data/generated/infra/2026-07-06.json"
+    },
+    {
+      "ingestedAt": "2026-07-06T16:56:07.038440Z",
+      "csvPath": "",
+      "csvSha256": "",
+      "capturedAt": "2026-07-06",
+      "rowsAdded": 0,
+      "rowsSkipped": 0,
+      "rowsConflicted": 0,
+      "infraSnapshot": "src/data/generated/infra/2026-07-06.json"
     }
   ]
 }
